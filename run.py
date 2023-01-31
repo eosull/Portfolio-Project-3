@@ -21,9 +21,10 @@ def ask_player_name():
 def validate_input(input_type, data):
     """
     Validates input from the user. Tests carried out dependant on input_type
-    variable passed to function. Name input is tested for length.
-    If input is valid True returned and input passes validation. If not False
-    is returned and input loop continues.
+    variable passed to function. Name input is required to be less than 15
+    characters and contain only alphabetical characters. If input is valid,
+    True is returned and input passes validation. If not, False is returned
+    and input loop continues.
     """
     if input_type == "name":
         try:
