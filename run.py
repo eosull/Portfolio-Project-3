@@ -11,7 +11,7 @@ def ask_player_name():
     print("Hello! Welcome to Battleship\n")
 
     while True:
-        name = input("Enter your name here:\n")
+        name = input("Enter your name:\n")
 
         if validate_input("name", name):
             print(f"Thank you {name}, let's get ready to play!")
@@ -28,9 +28,12 @@ def validate_input(input_type, data):
     if input_type == "name":
         try:
             if len(data) > 15:
-                raise ValueError("More than 15 characters")
+                raise ValueError("Name must be less than 15 characters\n")
+            for element in data:
+                if element.isalpha() is False:
+                    raise ValueError("Name must only contain letters\n")
         except ValueError as e:
-            print(f"Invalid name: {e}, please try again.\n")
+            print(f"Invalid name: {e}Please try again.\n")
             return False
 
         return True
