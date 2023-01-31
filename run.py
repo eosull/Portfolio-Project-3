@@ -3,7 +3,12 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 def ask_player_name():
-    print("Hello! Welcome to Battleship")
+    """
+    Asks the player to input their name. A while loop runs, collecting name
+    from user which must be 15 characters or less. This loop runs continuously
+    until valid data is provided.
+    """
+    print("Hello! Welcome to Battleship\n")
 
     while True:
         name = input("Enter your name here:\n")
@@ -14,6 +19,12 @@ def ask_player_name():
 
 
 def validate_input(input_type, data):
+    """
+    Validates input from the user. Tests carried out dependant on input_type
+    variable passed to function. Name input is tested for length.
+    If input is valid True returned and input passes validation. If not False
+    is returned and input loop continues.
+    """
     if input_type == "name":
         try:
             if len(data) > 15:
