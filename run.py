@@ -74,7 +74,9 @@ def validate_input(input_type, data):
         except ValueError as e:
             print(f"Invalid difficulty: {e}Please try again")
             return False
-        
-            
-ask_player_name()
-difficulty_choice()
+
+def main():          
+    ask_player_name()
+    difficulty_choice()
+
+main()
