@@ -14,7 +14,7 @@ def ask_player_name():
         name = input("Enter your name:\n")
 
         if validate_input("name", name):
-            print(f"Thank you {name}, let's get ready to play!")
+            print(f"Thank you {name}, let's get ready to play!\n")
             break
 
 
