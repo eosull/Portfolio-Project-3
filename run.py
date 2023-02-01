@@ -28,7 +28,8 @@ def difficulty_choice():
     print("Please Choose Difficulty")
 
     while True:
-        difficulty = input("Press E for Easy, M for Medium and H for Hard:\n").upper()
+        difficulty = input(
+            "Press E for Easy, M for Medium and H for Hard:\n").upper()
 
         if validate_input("difficulty", difficulty):
             if difficulty == "E":
@@ -37,10 +38,46 @@ def difficulty_choice():
                 difficulty = "Medium"
             elif difficulty == "H":
                 difficulty = "Hard"
-            print(f"You've selected {difficulty}")
+            print(f"You've selected {difficulty}\n")
             break
 
     return difficulty    
+
+
+def display_rules():
+    print("Here are the rules:\n")
+
+    print("Each player has 5 randomly positioned ships on the board")
+    print("They will be placed horizontally or vertically\n")
+
+    print("The 5 ships are:\n")
+
+    print("- Carrier. Occupies 5 spaces")
+    print("- Battleship. Occupies 4 spaces")
+    print("- Cruiser. Occupies 3 spaces")
+    print("- Submarine. Occupies 3 spaces")
+    print("- Deystroyer. Occupies 2 spaces\n")
+
+    print("Your job is to guess the position of these ships")
+    print("Each player will take turns guessing coordinates")
+    print("This guess will either be a 'hit' or a 'miss'")
+    print("Hit all the positions taken up by a ship and you sink it")
+    print("Sink all of the ships and you win!\n")
+
+    print("Not so fast though....\n")
+
+    print("Today you'll be playing against the old seadog Admiral M. Python")
+    print("Still fancy your chances??")
+
+    while True:
+        game_start = input("Y for Yes, N for No:").upper()
+
+        if validate_input("game_start", game_start):
+            if game_start == "Y":
+                print("Ok.... Let's get ready for battle!")
+            elif game_start == "N":
+                print("Wise decision, back to shore with you!")
+            break
 
 
 def validate_input(input_type, data):
@@ -75,8 +112,22 @@ def validate_input(input_type, data):
             print(f"Invalid difficulty: {e}Please try again")
             return False
 
+    # Game start input must be letter 'Y' or 'N'
+    if input_type == "game_start":
+        try:
+            if data == "Y" or data == "N":
+                return True
+            else:
+                raise ValueError("Must press Y or N\n")
+        except ValueError as e:
+            print(f"Invalid choice: {e}Please try again")
+            return False
+
+
 def main():          
     ask_player_name()
     difficulty_choice()
+    display_rules()
+
 
 main()
