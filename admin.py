@@ -8,7 +8,7 @@ class Admin():
     * Checking for a win
     """
 
-    def check_board_ok(self, player_places, computer_places, point_target,
+    def check_board_ok(player_places, computer_places, point_target,
                        board_1, board_2, player_ships, computer_ships,
                        board_size):
         """
@@ -26,5 +26,27 @@ class Admin():
             board_1.clear_board(1)
             board_2.clear_board(2)
 
-            player_ships.position_ship(1,board_1)
-            computer_ships.position_ship(2,board_2)
+            player_ships.position_ship(1, board_1)
+            computer_ships.position_ship(2, board_2)
+
+            player_places, computer_places = Admin.set_target_score(board_size, board_1, board_2)
+
+
+    def set_target_score(board_size, board_1, board_2):
+        """
+        Used to set target score for player and computer
+
+        Also used to verify both boards contain the right
+        amount of ships
+
+        All items on each board are tested and amount of
+        positions with ships are calculated
+        """
+        player_target, computer_target = 0, 0
+        for i in range(board_size):
+            for j in range(board_size):
+                if board_1.board[i][j] == "1":
+                    player_target += 1
+                if board_2.board[i][j] == "±":
+                    computer_target += 1
+        return player_target, computer_target
