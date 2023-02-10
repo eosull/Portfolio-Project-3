@@ -2,20 +2,24 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
-def ask_player_name():
-    """
-    Asks the player to input their name. A while loop runs, collecting name
-    from user which must be 15 characters or less. This loop runs continuously
-    until valid data is provided.
-    """
-    print("Hello! Welcome to Battleship\n")
+# def ask_player_name():
+#     """
+#     Asks the player to input their name. A while loop runs, collecting name
+#     from user which must be 15 characters or less. This loop runs continuously
+#     until valid data is provided.
+#     """
+#     print("Hello! Welcome to Battleship\n")
 
-    while True:
-        name = input("Enter your name:\n")
+#     while True:
+#         name = input("Enter your name:\n")
 
-        if validate_input("name", name):
-            print(f"Thank you {name}, let's get ready to play!\n")
-            break
+#         if validate_input("name", name):
+#             print(f"Thank you {name}, let's get ready to play!\n")
+#             break
+
+from admin import Admin
+
+game = Admin([], [], [], 0, 0, 0)
 
 
 def difficulty_choice():
@@ -40,8 +44,11 @@ def difficulty_choice():
                 difficulty = "Hard"
             print(f"You've selected {difficulty}\n")
             break
-
-    return difficulty    
+    
+    board_size, ship_amount, point_target = game.difficulty(difficulty)
+    print(board_size)
+    print(ship_amount)
+    print(point_target)
 
 
 def display_rules():
@@ -125,9 +132,9 @@ def validate_input(input_type, data):
 
 
 def main():          
-    ask_player_name()
+    # ask_player_name()
     difficulty_choice()
-    display_rules()
+    # display_rules()
 
 
 main()
