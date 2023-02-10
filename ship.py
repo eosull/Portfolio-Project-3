@@ -34,7 +34,7 @@ class Ship():
 
         If they are new position is generated and tested
 
-        Once this is passed place_ship function called to 
+        Once this is passed place_ship function called to
         place the ship onto the required board
         """
         for j in range(0, self.ship_amount):
@@ -45,3 +45,26 @@ class Ship():
                     while (check_pos == "1") or (check_pos == "±"):
                         x, y = self.position()
                         check_pos = board.board[x+row_check][y+column_check]
+            self.place_ship(x, y, j, player, board)
+
+    def place_ship(self, x, y, j, player, board):
+        """
+        Generates random number to decide whether ship
+        will be horizontal or vertical
+
+        Using ship_size variable (increases on each ship)
+        ship is built out from starting point, placing
+        either a '1' or a '±' to mark position
+        """
+        direction = randint(0, 1)
+        for i in range(0, self.ship_size + j):
+            if player == 1:
+                if direction == 0:
+                    board.board[x + i][y] = str(player)
+                elif direction == 1:
+                    board.board[x][y + i] = str(player)
+            elif player == 2:
+                if direction == 0:
+                    board.board[x + i][y] = "±"
+                elif direction == 1:
+                    board.board[x][y + i] = "±"
