@@ -155,8 +155,8 @@ def check_guess(board, guess_board, row, column, player, board_size, score):
 
     guess = board.board[row][column]
     while (guess == "o") or (guess == "X"):
-        row = randint(0,board_size-1)
-        column = randint(0,board_size-1)
+        row = randint(0, board_size-1)
+        column = randint(0, board_size-1)
         guess = board.board[row][column]
 
     if guess == "0" or guess == "~":
@@ -173,3 +173,16 @@ def check_guess(board, guess_board, row, column, player, board_size, score):
             board.board[row][column] = "X"
         score += 1
         return score
+
+
+def check_if_win(player_score, comp_score, player_target, computer_target):
+    """
+    checks to see if computer or player have met the target score
+    if either have, user informed whether win or loss
+    """
+    if player_score == player_target:
+        print("You Win!!!\n")
+        print("Congrats!!")
+    elif comp_score == computer_target:
+        print("You Lose!!")
+        print("Unlucky!")
