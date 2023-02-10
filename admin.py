@@ -10,17 +10,16 @@ class Admin():
     * Making sure ships are not overlapping
     * Checking for a win
     """
-    def __init__(self, board_1, board_2, board_3, player_ships, computer_ships, board_size, ship_amount, point_target):
+    def __init__(self, board_1, board_2, board_3, board_size, ship_amount, point_target):
         self.board_1 = board_1
         self.board_2 = board_2
         self.board_3 = board_3
-        self.player_ships = player_ships
-        self.computer_ships = computer_ships
         self.board_size = board_size
         self.ship_amount = ship_amount
         self.point_target = point_target
 
-    def check_board_ok(self, player_places, computer_places, point_target):
+    def check_board_ok(self, player_places, computer_places,
+                       player_ships, computer_ships):
         """
         Used to test if correct amount of ships are on the board
 
@@ -32,13 +31,13 @@ class Admin():
         This repeats until places taken up on board matches point
         target
         """
-        while (player_places != point_target) or (computer_places !=
-                                                  point_target):
+        while (player_places != self.point_target) or (computer_places !=
+                                                       self.point_target):
             self.board_1.clear_board(1)
             self.board_2.clear_board(2)
 
-            self.player_ships.position_ship(1, self.board_1)
-            self.computer_ships.position_ship(2, self.board_2)
+            player_ships.position_ship(1, self.board_1)
+            computer_ships.position_ship(2, self.board_2)
 
             player_places, computer_places = self.set_target_score()
 

@@ -5,8 +5,8 @@
 # def ask_player_name():
 #     """
 #     Asks the player to input their name. A while loop runs, collecting name
-#     from user which must be 15 characters or less. This loop runs continuously
-#     until valid data is provided.
+#     from user which must be 15 characters or less. This loop runs until
+#     valid data is provided.
 #     """
 #     print("Hello! Welcome to Battleship\n")
 
@@ -21,7 +21,8 @@ from admin import Admin
 from ship import Ship
 from board import Board
 
-game = Admin([], [], [], 0, 0, 0, 0, 0)
+game = Admin(0, 0, 0, 0, 0, 0)
+
 ship_size = 3
 
 
@@ -139,14 +140,25 @@ player_score, comp_score = 0, 0
 player_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
 computer_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
 
-board_1 = Board(game.board_size, "hidden")
-board_2 = Board(game.board_size, "position")
-board_3 = Board(game.board_size, "guess")
+game.board_1 = Board(game.board_size, "hidden")
+game.board_2 = Board(game.board_size, "position")
+game.board_3 = Board(game.board_size, "guess")
 
-# def main():          
-#     # ask_player_name()
-    
-#     # display_rules()
+player_ships.position_ship(1, game.board_1)
+computer_ships.position_ship(2, game.board_2)
 
+player_places, computer_places = game.set_target_score()
 
-# main()
+game.check_board_ok(player_places, computer_places,
+                    player_ships, computer_ships)
+
+print("\n**Your Guesses**\n")
+game.board_3.print_board()
+print("\n****************\n")
+
+print("\n**Your Board**\n")
+game.board_2.print_board()
+print("\n**************\n")
+
+print(f"Target score is {game.point_target}")
+print("Good Luck!!\n")
