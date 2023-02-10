@@ -49,3 +49,19 @@ class Board():
         for row in self.board:
             print(number, " ", (" ").join(row))
             number += 1
+
+    def clear_board(self, player):
+        """
+        clear_board sets board back to empty in case of overlapping
+        ships
+        """
+        self.board.clear()
+        self.board = []
+        if player == 1:
+            print("Board 1 Cleared")
+            for x in range(self.size):
+                self.board.append(["0"] * self.size)
+        if player == 2:
+            print("Board 2 Cleared")
+            for y in range(self.size):
+                self.board.append(["~"] * self.size)  
