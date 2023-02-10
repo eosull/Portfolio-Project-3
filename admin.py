@@ -1,4 +1,7 @@
 
+from random import randint
+
+
 class Admin():
     """
     Class to perform admin such:
@@ -69,3 +72,104 @@ class Admin():
             ship_amount = 3
             point_target = 12
         return board_size, ship_amount, point_target
+
+def guess(self, player_score, player_target, comp_score,
+    computer_target, board_1, board_2, board_3, board_size):
+        """
+        Takes user guess via input function and sends this input
+        to check_guess function to check if it has been guessed 
+        already and whether it is a hit or miss
+        
+        Random guess then generated for computer guess and process 
+        is repeated
+        
+        Boards, symbol key and scores are then printed out
+        
+        This process is repeated by using until while loop
+        is broken, at which point either player or computer is
+        declared the winner
+        
+        These conditions are tested using check_if_win function
+        """
+        while (player_score < player_target) and (comp_score < computer_target):
+
+            guess_row = int(input(f"Choose Row 0-{board_size-1}:"))
+            guess_column = int(input(f"Choose column 0-{board_size-1}:"))
+            player_score = self.check_guess(board_1, board_3, guess_row,
+            guess_column, 1, board_size, player_score)
+
+            guess_comp_row = randint(0,board_size-1)
+            guess_comp_column = randint(0,board_size-1)
+            comp_score = self.check_guess(board_2, board_3, guess_comp_row,
+            guess_comp_column, 2, board_size, comp_score)
+
+            print("\n********************************\n")
+            print("**Your Guesses**\n")
+            board_3.print_board()
+            print("\n********\n")
+            
+            print("\n**Your board**\n")
+            board_2.print_board()
+            print("\n********\n")
+
+            print("~ = Water")
+            print("± = Ship")
+            print("X = Hit")
+            print("o = Miss\n")
+
+            print(f"Your score: {player_score}")
+            print(f"Computer score is {comp_score}\n")
+            print(f"Score {player_target} to win\n")
+
+            self.check_if_win(player_score, comp_score, player_target, computer_target)
+
+
+def check_guess(board, guess_board, row, column, player, board_size, score):
+    """
+    For player, guess board is first tested to see if
+    guess has already been made. for computer, board with
+    player's ships is tested for same
+    
+    If it has already been guessed then new guess generated
+    by either asking for further user input or generating
+    another random guess. this process is repeated until
+    original guess is received
+    
+    When guess passes this stage, board is tested to see
+    if it is a 'hit' or a 'miss'
+    
+    For hit or miss, 'X' or '0' (respectively) is placed on
+    either player's guess board or board with player's ships
+    
+    Score is incremented if either make a hit. score then 
+    returned to be tested for winner 
+    """
+    if (player == 1):
+        previous_guess = guess_board.board[row][column]
+        while (previous_guess == "o") or (previous_guess == "X"):
+            print("You've already guessed here!")
+            print("Guess Again!!")
+            row = int(input(f"Choose Row 0-{board_size-1}:"))
+            column = int(input(f"Choose Column 0-{board_size-1}:"))
+            previous_guess = board.board[row][column]
+
+    guess = board.board[row][column]
+    while (guess == "o") or (guess == "X"):
+        row = randint(0,board_size-1)
+        column = randint(0,board_size-1)
+        guess = board.board[row][column]
+
+    if guess == "0" or guess == "~":
+        if player == 1:
+            guess_board.board[row][column] = "o"
+        if player == 2:
+            board.board[row][column] = "o"
+        return score
+      
+    elif (guess == "1") or (guess == "±"):
+        if player == 1:
+            guess_board.board[row][column] = "X"
+        elif player == 2:
+            board.board[row][column] = "X"
+        score += 1
+        return score
