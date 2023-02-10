@@ -24,3 +24,24 @@ class Ship():
         row_start = randint(0, self.safe_zone)
         column_start = randint(0, self.safe_zone)
         return row_start, column_start
+
+    def position_ship(self, player, board):
+        """
+        Calls position function for each ship required
+
+        The returned positions are tested to make sure
+        they are not already take by a ship
+
+        If they are new position is generated and tested
+
+        Once this is passed place_ship function called to 
+        place the ship onto the required board
+        """
+        for j in range(0, self.ship_amount):
+            x, y = self.position()
+            for row_check in range(0, self.ship_size + j):
+                for column_check in range(0, self.ship_size + j):
+                    check_pos = board.board[x+row_check][y+column_check]
+                    while (check_pos == "1") or (check_pos == "±"):
+                        x, y = self.position()
+                        check_pos = board.board[x+row_check][y+column_check]
