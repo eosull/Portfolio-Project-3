@@ -18,8 +18,11 @@
 #             break
 
 from admin import Admin
+from ship import Ship
+from board import Board
 
-game = Admin([], [], [], 0, 0, 0)
+game = Admin([], [], [], 0, 0, 0, 0, 0)
+ship_size = 3
 
 
 def difficulty_choice():
@@ -45,10 +48,7 @@ def difficulty_choice():
             print(f"You've selected {difficulty}\n")
             break
     
-    board_size, ship_amount, point_target = game.difficulty(difficulty)
-    print(board_size)
-    print(ship_amount)
-    print(point_target)
+    game.difficulty(difficulty)
 
 
 def display_rules():
@@ -93,7 +93,7 @@ def validate_input(input_type, data):
     variable passed to function. If input is valid,True is returned and input
     passes validation. If not, False is returned and input loop continues.
     """
-
+    
     # Name must be less than 15 characters & contain only alpha characters
     if input_type == "name":
         try:
@@ -131,10 +131,22 @@ def validate_input(input_type, data):
             return False
 
 
-def main():          
-    # ask_player_name()
-    difficulty_choice()
-    # display_rules()
+difficulty_choice()
+
+ship_max = (game.ship_amount + ship_size)-1
+player_score, comp_score = 0, 0
+
+player_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
+computer_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
+
+board_1 = Board(game.board_size, "hidden")
+board_2 = Board(game.board_size, "position")
+board_3 = Board(game.board_size, "guess")
+
+# def main():          
+#     # ask_player_name()
+    
+#     # display_rules()
 
 
-main()
+# main()

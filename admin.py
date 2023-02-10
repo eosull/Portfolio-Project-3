@@ -10,13 +10,15 @@ class Admin():
     * Making sure ships are not overlapping
     * Checking for a win
     """
-    def __init__(self, board_1, board_2, board_3, player_ships, computer_ships, board_size):
+    def __init__(self, board_1, board_2, board_3, player_ships, computer_ships, board_size, ship_amount, point_target):
         self.board_1 = board_1
         self.board_2 = board_2
         self.board_3 = board_3
         self.player_ships = player_ships
         self.computer_ships = computer_ships
         self.board_size = board_size
+        self.ship_amount = ship_amount
+        self.point_target = point_target
 
     def check_board_ok(self, player_places, computer_places, point_target):
         """
@@ -66,17 +68,16 @@ class Admin():
         """
         if choice == "Easy":
             self.board_size = 4
-            ship_amount = 1
-            point_target = 3
+            self.ship_amount = 1
+            self.point_target = 3
         elif choice == "Medium":
             self.board_size = 6
-            ship_amount = 2
-            point_target = 7
+            self.ship_amount = 2
+            self.point_target = 7
         elif choice == "Hard":
             self.board_size = 8
-            ship_amount = 3
-            point_target = 12
-        return self.board_size, ship_amount, point_target
+            self.ship_amount = 3
+            self.point_target = 12
 
     def guess(self, player_score, player_target, comp_score, computer_target):
         """
