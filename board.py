@@ -30,3 +30,22 @@ class Board():
             elif self.type == "hidden":
                 list.append(["0"] * self.size)
         return list
+
+    def print_board(self):
+        """
+        Prints items in list in grid formation 
+        Builds concantenated topline string as guide for top
+        of board
+
+        Similar guide added to start of each line using iteration
+        through board size combined with .join() to add a space
+        between all items in list 
+        """
+        topline = "   "
+        for i in range(self.size):
+            topline += (" " + str(i))
+        print(f"{topline}\n")
+        number = 0
+        for row in self.board:
+            print(number, " ", (" ").join(row))
+            number += 1
