@@ -1,3 +1,5 @@
+from random import randint
+
 
 class Ship():
     """
@@ -14,3 +16,11 @@ class Ship():
         self.ship_max = ship_max
         self.ship_amount = ship_amount
         self.safe_zone = board_size - ship_max
+
+    def position(self):
+        """
+        Generates and returns random row and column position
+        """
+        row_start = randint(0, self.safe_zone)
+        column_start = randint(0, self.safe_zone)
+        return row_start, column_start
