@@ -10,10 +10,15 @@ class Admin():
     * Making sure ships are not overlapping
     * Checking for a win
     """
+    def __init__(self, board_1, board_2, board_3, player_ships, computer_ships, board_size):
+        self.board_1 = board_1
+        self.board_2 = board_2
+        self.board_3 = board_3
+        self.player_ships = player_ships
+        self.computer_ships = computer_ships
+        self.board_size = board_size
 
-    def check_board_ok(player_places, computer_places, point_target,
-                       board_1, board_2, player_ships, computer_ships,
-                       board_size):
+    def check_board_ok(self, player_places, computer_places, point_target):
         """
         Used to test if correct amount of ships are on the board
 
@@ -25,17 +30,17 @@ class Admin():
         This repeats until places taken up on board matches point
         target
         """
-        while (player_places != point_target) or (computer_places != point_target):
-            board_1.clear_board(1)
-            board_2.clear_board(2)
+        while (player_places != point_target) or (computer_places !=
+                                                  point_target):
+            self.board_1.clear_board(1)
+            self.board_2.clear_board(2)
 
-            player_ships.position_ship(1, board_1)
-            computer_ships.position_ship(2, board_2)
+            self.player_ships.position_ship(1, self.board_1)
+            self.computer_ships.position_ship(2, self.board_2)
 
-            player_places, computer_places = Admin.set_target_score(board_size, board_1, board_2)
+            player_places, computer_places = self.set_target_score()
 
-
-    def set_target_score(board_size, board_1, board_2):
+    def set_target_score(self):
         """
         Used to set target score for player and computer
 
@@ -46,15 +51,15 @@ class Admin():
         positions with ships are calculated
         """
         player_target, computer_target = 0, 0
-        for i in range(board_size):
-            for j in range(board_size):
-                if board_1.board[i][j] == "1":
+        for i in range(self.board_size):
+            for j in range(self.board_size):
+                if self.board_1.board[i][j] == "1":
                     player_target += 1
-                if board_2.board[i][j] == "±":
+                if self.board_2.board[i][j] == "±":
                     computer_target += 1
         return player_target, computer_target
 
-    def difficulty(choice):
+    def difficulty(self, choice):
         """
         Takes user difficulty input and sets game
         settings to be used for game setup        
@@ -73,8 +78,7 @@ class Admin():
             point_target = 12
         return board_size, ship_amount, point_target
 
-def guess(self, player_score, player_target, comp_score,
-    computer_target, board_1, board_2, board_3, board_size):
+    def guess(self, player_score, player_target, comp_score, computer_target):
         """
         Takes user guess via input function and sends this input
         to check_guess function to check if it has been guessed 
@@ -93,23 +97,25 @@ def guess(self, player_score, player_target, comp_score,
         """
         while (player_score < player_target) and (comp_score < computer_target):
 
-            guess_row = int(input(f"Choose Row 0-{board_size-1}:"))
-            guess_column = int(input(f"Choose column 0-{board_size-1}:"))
-            player_score = self.check_guess(board_1, board_3, guess_row,
-            guess_column, 1, board_size, player_score)
+            guess_row = int(input(f"Choose Row 0-{self.board_size-1}:"))
+            guess_column = int(input(f"Choose column 0-{self.board_size-1}:"))
+            player_score = self.check_guess(self.board_1, self.board_3,
+                                            guess_row, guess_column, 1,
+                                            player_score)
 
-            guess_comp_row = randint(0,board_size-1)
-            guess_comp_column = randint(0,board_size-1)
-            comp_score = self.check_guess(board_2, board_3, guess_comp_row,
-            guess_comp_column, 2, board_size, comp_score)
+            guess_comp_row = randint(0, self.board_size-1)
+            guess_comp_column = randint(0, self.board_size-1)
+            comp_score = self.check_guess(self.board_2, self.board_3,
+                                          guess_comp_row, guess_comp_column,
+                                          2, comp_score)
 
             print("\n********************************\n")
             print("**Your Guesses**\n")
-            board_3.print_board()
+            self.board_3.print_board()
             print("\n********\n")
             
             print("\n**Your board**\n")
-            board_2.print_board()
+            self.board_2.print_board()
             print("\n********\n")
 
             print("~ = Water")
@@ -121,68 +127,68 @@ def guess(self, player_score, player_target, comp_score,
             print(f"Computer score is {comp_score}\n")
             print(f"Score {player_target} to win\n")
 
-            self.check_if_win(player_score, comp_score, player_target, computer_target)
+            self.check_if_win(player_score, comp_score, player_target,
+                              computer_target)
 
+    def check_guess(self, board, guess_board, row, column, player, score):
+        """
+        For player, guess board is first tested to see if
+        guess has already been made. for computer, board with
+        player's ships is tested for same
+        
+        If it has already been guessed then new guess generated
+        by either asking for further user input or generating
+        another random guess. this process is repeated until
+        original guess is received
+        
+        When guess passes this stage, board is tested to see
+        if it is a 'hit' or a 'miss'
+        
+        For hit or miss, 'X' or '0' (respectively) is placed on
+        either player's guess board or board with player's ships
+        
+        Score is incremented if either make a hit. score then 
+        returned to be tested for winner 
+        """
+        if (player == 1):
+            previous_guess = guess_board.board[row][column]
+            while (previous_guess == "o") or (previous_guess == "X"):
+                print("You've already guessed here!")
+                print("Guess Again!!")
+                row = int(input(f"Choose Row 0-{self.board_size-1}:"))
+                column = int(input(f"Choose Column 0-{self.board_size-1}:"))
+                previous_guess = board.board[row][column]
 
-def check_guess(board, guess_board, row, column, player, board_size, score):
-    """
-    For player, guess board is first tested to see if
-    guess has already been made. for computer, board with
-    player's ships is tested for same
-    
-    If it has already been guessed then new guess generated
-    by either asking for further user input or generating
-    another random guess. this process is repeated until
-    original guess is received
-    
-    When guess passes this stage, board is tested to see
-    if it is a 'hit' or a 'miss'
-    
-    For hit or miss, 'X' or '0' (respectively) is placed on
-    either player's guess board or board with player's ships
-    
-    Score is incremented if either make a hit. score then 
-    returned to be tested for winner 
-    """
-    if (player == 1):
-        previous_guess = guess_board.board[row][column]
-        while (previous_guess == "o") or (previous_guess == "X"):
-            print("You've already guessed here!")
-            print("Guess Again!!")
-            row = int(input(f"Choose Row 0-{board_size-1}:"))
-            column = int(input(f"Choose Column 0-{board_size-1}:"))
-            previous_guess = board.board[row][column]
-
-    guess = board.board[row][column]
-    while (guess == "o") or (guess == "X"):
-        row = randint(0, board_size-1)
-        column = randint(0, board_size-1)
         guess = board.board[row][column]
+        while (guess == "o") or (guess == "X"):
+            row = randint(0, self.board_size-1)
+            column = randint(0, self.board_size-1)
+            guess = board.board[row][column]
 
-    if guess == "0" or guess == "~":
-        if player == 1:
-            guess_board.board[row][column] = "o"
-        if player == 2:
-            board.board[row][column] = "o"
-        return score
-      
-    elif (guess == "1") or (guess == "±"):
-        if player == 1:
-            guess_board.board[row][column] = "X"
-        elif player == 2:
-            board.board[row][column] = "X"
-        score += 1
-        return score
+        if guess == "0" or guess == "~":
+            if player == 1:
+                guess_board.board[row][column] = "o"
+            if player == 2:
+                board.board[row][column] = "o"
+            return score
+        
+        elif (guess == "1") or (guess == "±"):
+            if player == 1:
+                guess_board.board[row][column] = "X"
+            elif player == 2:
+                board.board[row][column] = "X"
+            score += 1
+            return score
 
-
-def check_if_win(player_score, comp_score, player_target, computer_target):
-    """
-    checks to see if computer or player have met the target score
-    if either have, user informed whether win or loss
-    """
-    if player_score == player_target:
-        print("You Win!!!\n")
-        print("Congrats!!")
-    elif comp_score == computer_target:
-        print("You Lose!!")
-        print("Unlucky!")
+    def check_if_win(self, player_score, comp_score, player_target,
+                     computer_target):
+        """
+        checks to see if computer or player have met the target score
+        if either have, user informed whether win or loss
+        """
+        if player_score == player_target:
+            print("You Win!!!\n")
+            print("Congrats!!")
+        elif comp_score == computer_target:
+            print("You Lose!!")
+            print("Unlucky!")
