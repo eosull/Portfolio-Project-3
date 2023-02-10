@@ -50,3 +50,22 @@ class Admin():
                 if board_2.board[i][j] == "±":
                     computer_target += 1
         return player_target, computer_target
+
+    def difficulty(choice):
+        """
+        Takes user difficulty input and sets game
+        settings to be used for game setup        
+        """
+        if choice == "E":
+            board_size = 4
+            ship_amount = 1
+            point_target = 3
+        elif choice == "M":
+            board_size = 6
+            ship_amount = 2
+            point_target = 7
+        elif choice == "H":
+            board_size = 8
+            ship_amount = 3
+            point_target = 12
+        return board_size, ship_amount, point_target
