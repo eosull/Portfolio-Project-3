@@ -162,3 +162,5 @@ print("\n**************\n")
 
 print(f"Target score is {game.point_target}")
 print("Good Luck!!\n")
+
+game.guess(player_score, comp_score)

@@ -78,7 +78,7 @@ class Admin():
             self.ship_amount = 3
             self.point_target = 12
 
-    def guess(self, player_score, player_target, comp_score, computer_target):
+    def guess(self, player_score, comp_score):
         """
         Takes user guess via input function and sends this input
         to check_guess function to check if it has been guessed 
@@ -95,7 +95,7 @@ class Admin():
         
         These conditions are tested using check_if_win function
         """
-        while (player_score < player_target) and (comp_score < computer_target):
+        while (player_score < self.point_target) and (comp_score < self.point_target):
 
             guess_row = int(input(f"Choose Row 0-{self.board_size-1}:"))
             guess_column = int(input(f"Choose column 0-{self.board_size-1}:"))
@@ -125,10 +125,9 @@ class Admin():
 
             print(f"Your score: {player_score}")
             print(f"Computer score is {comp_score}\n")
-            print(f"Score {player_target} to win\n")
+            print(f"Score {self.point_target} to win\n")
 
-            self.check_if_win(player_score, comp_score, player_target,
-                              computer_target)
+            self.check_if_win(player_score, comp_score)
 
     def check_guess(self, board, guess_board, row, column, player, score):
         """
@@ -180,15 +179,14 @@ class Admin():
             score += 1
             return score
 
-    def check_if_win(self, player_score, comp_score, player_target,
-                     computer_target):
+    def check_if_win(self, player_score, comp_score):
         """
         checks to see if computer or player have met the target score
         if either have, user informed whether win or loss
         """
-        if player_score == player_target:
+        if player_score == self.point_target:
             print("You Win!!!\n")
             print("Congrats!!")
-        elif comp_score == computer_target:
+        elif comp_score == self.point_target:
             print("You Lose!!")
             print("Unlucky!")
