@@ -35,37 +35,26 @@ while True:
         break
 
 
+print("Here are the rules:\n")
+
+print(f"Each player has {game.ship_amount} ship/ships on their board")
+print("They will be placed horizontally or vertically\n")
+
+# print("- Carrier. Occupies 5 spaces")
+# print("- Battleship. Occupies 4 spaces")
+# print("- Cruiser. Occupies 3 spaces")
+
+print("Your job is to guess the position of these ships")
+print("Each player will take turns guessing coordinates")
+print("This guess will either be a 'hit' or a 'miss'")
+print("Hit all the positions taken up by a ship and you sink it")
+print("Sink all of the ships and you win!\n")
+
 print("Do you want to begin?")
 while True:
     start_input = Validation(input("Y for Yes, N for No:").upper())
     if start_input.validate_start():
         break
-
-
-def display_rules():
-    print("Here are the rules:\n")
-
-    print("Each player has 5 randomly positioned ships on the board")
-    print("They will be placed horizontally or vertically\n")
-
-    print("The 5 ships are:\n")
-
-    print("- Carrier. Occupies 5 spaces")
-    print("- Battleship. Occupies 4 spaces")
-    print("- Cruiser. Occupies 3 spaces")
-    print("- Submarine. Occupies 3 spaces")
-    print("- Deystroyer. Occupies 2 spaces\n")
-
-    print("Your job is to guess the position of these ships")
-    print("Each player will take turns guessing coordinates")
-    print("This guess will either be a 'hit' or a 'miss'")
-    print("Hit all the positions taken up by a ship and you sink it")
-    print("Sink all of the ships and you win!\n")
-
-    print("Not so fast though....\n")
-
-    print("Today you'll be playing against the old seadog Admiral M. Python")
-    print("Still fancy your chances??")
 
 ship_max = (game.ship_amount + ship_size)-1
 player_score, comp_score = 0, 0

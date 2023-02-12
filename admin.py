@@ -10,7 +10,8 @@ class Admin():
     * Making sure ships are not overlapping
     * Checking for a win
     """
-    def __init__(self, board_1, board_2, board_3, board_size, ship_amount, point_target):
+    def __init__(self, board_1, board_2, board_3, board_size,
+                 ship_amount, point_target):
         self.board_1 = board_1
         self.board_2 = board_2
         self.board_3 = board_3
@@ -84,21 +85,22 @@ class Admin():
     def guess(self, player_score, comp_score):
         """
         Takes user guess via input function and sends this input
-        to check_guess function to check if it has been guessed 
+        to check_guess function to check if it has been guessed
         already and whether it is a hit or miss
-        
-        Random guess then generated for computer guess and process 
+
+        Random guess then generated for computer guess and process
         is repeated
-        
+
         Boards, symbol key and scores are then printed out
-        
+
         This process is repeated by using until while loop
         is broken, at which point either player or computer is
         declared the winner
-        
+
         These conditions are tested using check_if_win function
         """
-        while (player_score < self.point_target) and (comp_score < self.point_target):
+        while (player_score < self.point_target) and (comp_score
+                                                      < self.point_target):
 
             guess_row = int(input(f"Choose Row 0-{self.board_size-1}:"))
             guess_column = int(input(f"Choose column 0-{self.board_size-1}:"))
@@ -116,7 +118,7 @@ class Admin():
             print("**Your Guesses**\n")
             self.board_3.print_board()
             print("\n********\n")
-            
+
             print("\n**Your board**\n")
             self.board_2.print_board()
             print("\n********\n")
@@ -137,20 +139,20 @@ class Admin():
         For player, guess board is first tested to see if
         guess has already been made. for computer, board with
         player's ships is tested for same
-        
+
         If it has already been guessed then new guess generated
         by either asking for further user input or generating
         another random guess. this process is repeated until
         original guess is received
-        
+
         When guess passes this stage, board is tested to see
         if it is a 'hit' or a 'miss'
-        
+
         For hit or miss, 'X' or '0' (respectively) is placed on
         either player's guess board or board with player's ships
-        
-        Score is incremented if either make a hit. score then 
-        returned to be tested for winner 
+
+        Score is incremented if either make a hit. score then
+        returned to be tested for winner
         """
         if (player == 1):
             previous_guess = guess_board.board[row][column]
@@ -173,7 +175,7 @@ class Admin():
             if player == 2:
                 board.board[row][column] = "o"
             return score
-        
+
         elif (guess == "1") or (guess == "±"):
             if player == 1:
                 guess_board.board[row][column] = "X"
