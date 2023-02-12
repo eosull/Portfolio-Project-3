@@ -2,6 +2,9 @@
 class Validation():
     """
     Class for validation of user input
+    Validates input from the user. Tests carried out dependant on input_type
+    variable passed to function. If input is valid,True is returned and input
+    passes validation. If not, False is returned and input loop continues.
     """
 
     def __init__(self, data):
@@ -30,4 +33,19 @@ class Validation():
                 raise ValueError("Must press E, M or H\n")
         except ValueError as e:
             print(f"Invalid difficulty: {e}Please try again")
+            return False
+
+    # Game start input must be letter 'Y' or 'N'
+    def validate_start(self):
+        try:
+            if self.data == "Y":
+                print("Ok.... Let's get ready for battle!")
+                return True
+            elif self.data == "N":
+                print("Wise decision, back to shore with you!")
+                return True
+            else:
+                raise ValueError("Must press Y or N\n")
+        except ValueError as e:
+            print(f"Invalid choice: {e}Please try again")
             return False

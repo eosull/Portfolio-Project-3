@@ -35,6 +35,13 @@ while True:
         break
 
 
+print("Do you want to begin?")
+while True:
+    start_input = Validation(input("Y for Yes, N for No:").upper())
+    if start_input.validate_start():
+        break
+
+
 def display_rules():
     print("Here are the rules:\n")
 
@@ -59,35 +66,6 @@ def display_rules():
 
     print("Today you'll be playing against the old seadog Admiral M. Python")
     print("Still fancy your chances??")
-
-    while True:
-        game_start = input("Y for Yes, N for No:").upper()
-
-        if validate_input("game_start", game_start):
-            if game_start == "Y":
-                print("Ok.... Let's get ready for battle!")
-            elif game_start == "N":
-                print("Wise decision, back to shore with you!")
-            break
-
-
-def validate_input(input_type, data):
-    """
-    Validates input from the user. Tests carried out dependant on input_type
-    variable passed to function. If input is valid,True is returned and input
-    passes validation. If not, False is returned and input loop continues.
-    """
-    # Game start input must be letter 'Y' or 'N'
-    if input_type == "game_start":
-        try:
-            if data == "Y" or data == "N":
-                return True
-            else:
-                raise ValueError("Must press Y or N\n")
-        except ValueError as e:
-            print(f"Invalid choice: {e}Please try again")
-            return False
-
 
 ship_max = (game.ship_amount + ship_size)-1
 player_score, comp_score = 0, 0
