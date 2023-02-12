@@ -1,5 +1,6 @@
 
 from random import randint
+from validation import Validation
 
 
 class Admin():
@@ -101,12 +102,20 @@ class Admin():
         """
         while (player_score < self.point_target) and (comp_score
                                                       < self.point_target):
-
-            guess_row = int(input(f"Choose Row 0-{self.board_size-1}:"))
-            guess_column = int(input(f"Choose column 0-{self.board_size-1}:"))
+            while True:
+                guess_row = Validation(int(input(
+                            f"Choose Row 0-{self.board_size-1}:")))
+                if guess_row.validate_guess(self.board_size-1):
+                    row_val = guess_row.data
+                    break
+            while True:
+                guess_column = Validation(int(input(
+                            f"Choose column 0-{self.board_size-1}:")))
+                if guess_column.validate_guess(self.board_size-1):
+                    col_val = guess_column.data
+                    break
             player_score = self.check_guess(self.board_1, self.board_3,
-                                            guess_row, guess_column, 1,
-                                            player_score)
+                                            row_val, col_val, 1, player_score)
 
             guess_comp_row = randint(0, self.board_size-1)
             guess_comp_column = randint(0, self.board_size-1)

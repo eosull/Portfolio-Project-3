@@ -55,3 +55,16 @@ class Validation():
         except ValueError as e:
             print(f"Invalid choice: {e}Please try again")
             return False
+
+    def validate_guess(self, range):
+        """
+        Guess value must be between 0 & board size -1
+        """
+        try:
+            if self.data <= (range):
+                return True
+            else:
+                raise ValueError(f"Guess must be between 0 and {range}")
+        except ValueError as e:
+            print(f"Invalid choice: {e}")
+            return False
