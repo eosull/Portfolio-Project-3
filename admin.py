@@ -24,14 +24,8 @@ class Admin():
                        player_ships, computer_ships):
         """
         Used to test if correct amount of ships are on the board
-
-        Tests places taken up on each board against the point
-        target which is the sum of all ship sizes
-
-        If they don't match, boards are cleared and re-populated
-
-        This repeats until places taken up on board matches point
-        target
+        Boards are cleared and re-populated if correct amount
+        of places are not taken up by ships
         """
         while (player_places != self.point_target) or (computer_places !=
                                                        self.point_target):
@@ -41,17 +35,12 @@ class Admin():
             player_ships.position_ship(1, self.board_1)
             computer_ships.position_ship(2, self.board_2)
 
-            player_places, computer_places = self.set_target_score()
+            player_places, computer_places = self.count_board_places()
 
-    def set_target_score(self):
+    def count_board_places(self):
         """
-        Used to set target score for player and computer
-
-        Also used to verify both boards contain the right
-        amount of ships
-
-        All items on each board are tested and amount of
-        positions with ships are calculated
+        Counts the amount of places on each board taken up by
+        ships
         """
         player_target, computer_target = 0, 0
         for i in range(self.board_size):
@@ -85,20 +74,9 @@ class Admin():
 
     def guess(self, player_score, comp_score):
         """
-        Takes user guess via input function and sends this input
-        to check_guess function to check if it has been guessed
-        already and whether it is a hit or miss
-
-        Random guess then generated for computer guess and process
-        is repeated
-
-        Boards, symbol key and scores are then printed out
-
-        This process is repeated by using until while loop
-        is broken, at which point either player or computer is
-        declared the winner
-
-        These conditions are tested using check_if_win function
+        Validates user guess input and generates computer guess
+        These guesses are checked using check_guess function
+        Game status is printed and scores are checked for win
         """
         while (player_score < self.point_target) and (comp_score
                                                       < self.point_target):
@@ -130,23 +108,9 @@ class Admin():
 
     def check_guess(self, board, guess_board, row, column, player, score):
         """
-        For player, guess board is first tested to see if
-        guess has already been made. for computer, board with
-        player's ships is tested for same
-
-        If it has already been guessed then new guess generated
-        by either asking for further user input or generating
-        another random guess. this process is repeated until
-        original guess is received
-
-        When guess passes this stage, board is tested to see
-        if it is a 'hit' or a 'miss'
-
-        For hit or miss, 'X' or '0' (respectively) is placed on
-        either player's guess board or board with player's ships
-
-        Score is incremented if either make a hit. score then
-        returned to be tested for winner
+        Asks for another input if guess has already been made by user
+        Generates another random guess for computer if guess already been made
+        Score incremented if hit, returned unchanged if miss
         """
         if (player == 1):
             previous_guess = guess_board.board[row][column]
@@ -203,8 +167,7 @@ class Admin():
 
     def check_if_win(self, player_score, comp_score):
         """
-        Checks to see if computer or player have met the target score
-        if either have, user informed whether win or loss
+        Checks if computer or player have met the target score
         """
         if player_score == self.point_target:
             print("You Win!!!\n")

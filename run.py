@@ -69,7 +69,7 @@ game.board_3 = Board(game.board_size, "guess")
 player_ships.position_ship(1, game.board_1)
 computer_ships.position_ship(2, game.board_2)
 
-player_places, computer_places = game.set_target_score()
+player_places, computer_places = game.count_board_places()
 
 game.check_board_ok(player_places, computer_places,
                     player_ships, computer_ships)
