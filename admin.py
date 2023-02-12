@@ -102,21 +102,23 @@ class Admin():
         """
         while (player_score < self.point_target) and (comp_score
                                                       < self.point_target):
+            # Player Guess
             while True:
-                guess_row = Validation(int(input(
-                            f"Choose Row 0-{self.board_size-1}:")))
+                guess_row = Validation(input(
+                            f"Choose Row 0-{self.board_size-1}:"))
                 if guess_row.validate_guess(self.board_size-1):
-                    row_val = guess_row.data
+                    row_val = int(guess_row.data)
                     break
             while True:
-                guess_column = Validation(int(input(
-                            f"Choose column 0-{self.board_size-1}:")))
+                guess_column = Validation(input(
+                            f"Choose column 0-{self.board_size-1}:"))
                 if guess_column.validate_guess(self.board_size-1):
-                    col_val = guess_column.data
+                    col_val = int(guess_column.data)
                     break
             player_score = self.check_guess(self.board_1, self.board_3,
                                             row_val, col_val, 1, player_score)
 
+            # Computer Guess
             guess_comp_row = randint(0, self.board_size-1)
             guess_comp_column = randint(0, self.board_size-1)
             comp_score = self.check_guess(self.board_2, self.board_3,
