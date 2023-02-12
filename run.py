@@ -2,14 +2,6 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
-# def ask_player_name():
-#     """
-#     Asks the player to input their name. A while loop runs, collecting name
-#     from user which must be 15 characters or less. This loop runs until
-#     valid data is provided.
-#     """
-#     print("Hello! Welcome to Battleship\n")
-
 from admin import Admin
 from ship import Ship
 from board import Board
@@ -34,16 +26,9 @@ while True:
         game.difficulty(difficulty_input.data)
         break
 
-
 print("Here are the rules:\n")
-
 print(f"Each player has {game.ship_amount} ship/ships on their board")
 print("They will be placed horizontally or vertically\n")
-
-# print("- Carrier. Occupies 5 spaces")
-# print("- Battleship. Occupies 4 spaces")
-# print("- Cruiser. Occupies 3 spaces")
-
 print("Your job is to guess the position of these ships")
 print("Each player will take turns guessing coordinates")
 print("This guess will either be a 'hit' or a 'miss'")

@@ -38,16 +38,18 @@ class Ship():
         place the ship onto the required board
         """
         for j in range(0, self.ship_amount):
-            x, y = self.position()
+            row, column = self.position()
             for row_check in range(0, self.ship_size + j):
                 for column_check in range(0, self.ship_size + j):
-                    check_pos = board.board[x+row_check][y+column_check]
+                    check_pos = board.board[row + row_check][
+                        column + column_check]
                     while (check_pos == "1") or (check_pos == "±"):
-                        x, y = self.position()
-                        check_pos = board.board[x+row_check][y+column_check]
-            self.place_ship(x, y, j, player, board)
+                        row, column = self.position()
+                        check_pos = board.board[row + row_check][
+                            column + column_check]
+            self.place_ship(row, column, j, player, board)
 
-    def place_ship(self, x, y, j, player, board):
+    def place_ship(self, row, column, j, player, board):
         """
         Generates random number to decide whether ship
         will be horizontal or vertical
@@ -60,11 +62,11 @@ class Ship():
         for i in range(0, self.ship_size + j):
             if player == 1:
                 if direction == 0:
-                    board.board[x + i][y] = str(player)
+                    board.board[row + i][column] = str(player)
                 elif direction == 1:
-                    board.board[x][y + i] = str(player)
+                    board.board[row][column + i] = str(player)
             elif player == 2:
                 if direction == 0:
-                    board.board[x + i][y] = "±"
+                    board.board[row + i][column] = "±"
                 elif direction == 1:
-                    board.board[x][y + i] = "±"
+                    board.board[row][column + i] = "±"
