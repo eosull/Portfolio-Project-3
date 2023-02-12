@@ -65,18 +65,21 @@ class Admin():
         Takes user difficulty input and sets game
         settings to be used for game setup
         """
-        if choice == "Easy":
+        if choice == "E":
             self.board_size = 4
             self.ship_amount = 1
             self.point_target = 3
-        elif choice == "Medium":
+            print("You've chosen Easy")
+        elif choice == "M":
             self.board_size = 6
             self.ship_amount = 2
             self.point_target = 7
-        elif choice == "Hard":
+            print("You've chosen Medium")
+        elif choice == "H":
             self.board_size = 8
             self.ship_amount = 3
             self.point_target = 12
+            print("You've chosen Hard")
 
     def guess(self, player_score, comp_score):
         """

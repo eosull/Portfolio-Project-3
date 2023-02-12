@@ -26,22 +26,13 @@ while True:
         break
 
 
-    print("Please Choose Difficulty")
-    while True:
-        difficulty = input(
-            "Press E for Easy, M for Medium and H for Hard:\n").upper()
-
-        if validate_input("difficulty", difficulty):
-            if difficulty == "E":
-                difficulty = "Easy"
-            elif difficulty == "M":
-                difficulty = "Medium"
-            elif difficulty == "H":
-                difficulty = "Hard"
-            print(f"You've selected {difficulty}\n")
-            break
-    
-    game.difficulty(difficulty)
+print("Please Choose Difficulty")
+while True:
+    difficulty_input = Validation(input(
+        "Press E for Easy, M for Medium and H for Hard:\n").upper())
+    if difficulty_input.validate_diff():
+        game.difficulty(difficulty_input.data)
+        break
 
 
 def display_rules():
@@ -86,19 +77,6 @@ def validate_input(input_type, data):
     variable passed to function. If input is valid,True is returned and input
     passes validation. If not, False is returned and input loop continues.
     """
-    
-
-    # Difficulty must be letter 'E', 'M' or 'H'
-    if input_type == "difficulty":
-        try:
-            if data == "E" or data == "M" or data == "H":
-                return True
-            else:
-                raise ValueError("Must press E, M or H\n")
-        except ValueError as e:
-            print(f"Invalid difficulty: {e}Please try again")
-            return False
-
     # Game start input must be letter 'Y' or 'N'
     if input_type == "game_start":
         try:
@@ -110,8 +88,6 @@ def validate_input(input_type, data):
             print(f"Invalid choice: {e}Please try again")
             return False
 
-
-difficulty_choice()
 
 ship_max = (game.ship_amount + ship_size)-1
 player_score, comp_score = 0, 0

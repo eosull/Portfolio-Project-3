@@ -20,3 +20,14 @@ class Validation():
             return False
 
         return True
+
+    # Difficulty must be letter 'E', 'M' or 'H'
+    def validate_diff(self):
+        try:
+            if self.data == "E" or self.data == "M" or self.data == "H":
+                return True
+            else:
+                raise ValueError("Must press E, M or H\n")
+        except ValueError as e:
+            print(f"Invalid difficulty: {e}Please try again")
+            return False
