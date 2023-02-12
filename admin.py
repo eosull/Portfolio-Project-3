@@ -125,24 +125,7 @@ class Admin():
                                           guess_comp_row, guess_comp_column,
                                           2, comp_score)
 
-            print("\n********************************\n")
-            print("**Your Guesses**\n")
-            self.board_3.print_board()
-            print("\n********\n")
-
-            print("\n**Your board**\n")
-            self.board_2.print_board()
-            print("\n********\n")
-
-            print("~ = Water")
-            print("± = Ship")
-            print("X = Hit")
-            print("o = Miss\n")
-
-            print(f"Your score: {player_score}")
-            print(f"Computer score is {comp_score}\n")
-            print(f"Score {self.point_target} to win\n")
-
+            self.print_game_status(player_score, comp_score)
             self.check_if_win(player_score, comp_score)
 
     def check_guess(self, board, guess_board, row, column, player, score):
@@ -195,9 +178,32 @@ class Admin():
             score += 1
             return score
 
+    def print_game_status(self, player_score, comp_score):
+        """
+        Prints out game status after each validated guess
+        Includes boards, key for boards and scores
+        """
+        print("\n********************************\n")
+        print("**Your Guesses**\n")
+        self.board_3.print_board()
+        print("\n********\n")
+
+        print("\n**Your board**\n")
+        self.board_2.print_board()
+        print("\n********\n")
+
+        print("~ = Water")
+        print("± = Ship")
+        print("X = Hit")
+        print("o = Miss\n")
+
+        print(f"Your score: {player_score}")
+        print(f"Computer score is {comp_score}\n")
+        print(f"Score {self.point_target} to win\n")
+
     def check_if_win(self, player_score, comp_score):
         """
-        checks to see if computer or player have met the target score
+        Checks to see if computer or player have met the target score
         if either have, user informed whether win or loss
         """
         if player_score == self.point_target:
