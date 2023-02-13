@@ -45,10 +45,10 @@ class Validation():
         """
         try:
             if self.data == "Y":
-                print("Ok.... Let's get ready for battle!")
+                print("\n\nOk.... Let's get ready for battle!\n\n")
                 return True
             elif self.data == "N":
-                print("Wise decision, back to shore with you!")
+                print("\n\nWise decision, back to shore with you!\n\n")
                 exit()
             else:
                 raise ValueError("Must press Y or N\n")
