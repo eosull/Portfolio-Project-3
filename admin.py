@@ -60,17 +60,17 @@ class Admin():
             self.board_size = 4
             self.ship_amount = 1
             self.point_target = 3
-            print("You've chosen Easy")
+            print("\nYou've chosen Easy\n\n")
         elif choice == "M":
             self.board_size = 6
             self.ship_amount = 2
             self.point_target = 7
-            print("You've chosen Medium")
+            print("\nYou've chosen Medium\n\n")
         elif choice == "H":
             self.board_size = 8
             self.ship_amount = 3
             self.point_target = 12
-            print("You've chosen Hard")
+            print("\nYou've chosen Hard\n\n")
 
     def guess(self, player_score, comp_score):
         """
