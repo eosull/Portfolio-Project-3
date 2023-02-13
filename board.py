@@ -1,4 +1,6 @@
 
+import time
+
 
 class Board():
     """
@@ -46,10 +48,12 @@ class Board():
         for i in range(self.size):
             topline += (" " + str(i))
         print(f"{topline}\n")
+        time.sleep(0.5)
         number = 0
         for row in self.board:
             print(number, " ", (" ").join(row))
             number += 1
+            time.sleep(0.5)
 
     def clear_board(self, player):
         """

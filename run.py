@@ -25,15 +25,16 @@ while True:
         break
 game.load(2, 1)
 print("Firstly, Please Choose Difficulty")
+game.load(1, 1)
 while True:
     difficulty_input = Validation(input(
         "Press E for Easy, M for Medium and H for Hard:").upper())
     if difficulty_input.validate_diff():
         game.difficulty(difficulty_input.data)
         break
-game.load(2, 1)
+game.load(2, 0.5)
 print("Ok, here are the rules:")
-game.load(2, 1)
+game.load(1, 2)
 if game.ship_amount > 1:
     print(f"Each player has {game.ship_amount} ships on their board")
     game.load(1, 2)
@@ -79,12 +80,18 @@ player_places, computer_places = game.count_board_places()
 game.check_board_ok(player_places, computer_places,
                     player_ships, computer_ships)
 
+game.load(2, 0.5)
 print("**Your Guesses**")
+game.load(1, 0.5)
 game.board_3.print_board()
-print("\n\n****************\n\n")
+game.load(2, 0.5)
+print("****************")
 
+game.load(2, 0.5)
 print("**Your Board**")
+game.load(1, 0.5)
 game.board_2.print_board()
+game.load(2, 0.5)
 print("\n**************\n")
 
 print(f"Target score is {game.point_target}")

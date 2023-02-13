@@ -148,23 +148,33 @@ class Admin():
         Prints out game status after each validated guess
         Includes boards, key for boards and scores
         """
-        print("\n********************************\n")
+        self.load(2, 0.5)
+        print("********************************")
+        self.load(2, 0.5)
         print("**Your Guesses**")
+        self.load(1, 0.5)
         self.board_3.print_board()
-        print("\n\n****************\n\n")
+        self.load(2, 0.5)
+        print("****************")
 
+        self.load(2, 0.5)
         print("**Your Board**")
+        self.load(1, 0.5)
         self.board_2.print_board()
-        print("\n**************\n")
+        self.load(2, 0.5)
+        print("**************")
 
+        self.load(1, 0.5)
         print("~ = Water")
         print("± = Ship")
         print("X = Hit")
-        print("o = Miss\n")
+        print("o = Miss")
 
+        self.load(2, 0.5)
         print(f"Your score: {player_score}")
-        print(f"Computer score is {comp_score}\n")
-        print(f"Score {self.point_target} to win\n")
+        print(f"Computer score is {comp_score}")
+        self.load(1, 0.5)
+        print(f"Score {self.point_target} to win")
 
     def check_if_win(self, player_score, comp_score):
         """
@@ -182,5 +192,6 @@ class Admin():
         Simulates loading by printing character followed by sleep
         """
         for _ in range(0, lines):
-            print(".")
+            print(" ")
             time.sleep(time_per_line)
+            
