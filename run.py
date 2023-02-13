@@ -11,38 +11,48 @@ game = Admin(0, 0, 0, 0, 0, 0)
 
 ship_size = 3
 
-print("Welcome to\n\n")
+print("Welcome to....")
+game.load(5, 0.25)
 print("""\
             █▄▄ ▄▀█ ▀█▀ ▀█▀ █░░ █▀▀ █▀ █░█ █ █▀█
-            █▄█ █▀█ ░█░ ░█░ █▄▄ ██▄ ▄█ █▀█ █ █▀▀\n\n""")
+            █▄█ █▀█ ░█░ ░█░ █▄▄ ██▄ ▄█ █▀█ █ █▀▀""")
+game.load(5, 0.25)
 
 while True:
     name_input = Validation(input("Enter your name:\n"))
     if name_input.validate_name():
         print(f"Thank you {name_input.data}, let's get ready to play!")
         break
-
-print("\n\nFirstly, Please Choose Difficulty")
+game.load(2, 1)
+print("Firstly, Please Choose Difficulty")
 while True:
     difficulty_input = Validation(input(
         "Press E for Easy, M for Medium and H for Hard:").upper())
     if difficulty_input.validate_diff():
         game.difficulty(difficulty_input.data)
         break
-
-print("Ok, here are the rules:\n\n")
-
+game.load(2, 1)
+print("Ok, here are the rules:")
+game.load(2, 1)
 if game.ship_amount > 1:
     print(f"Each player has {game.ship_amount} ships on their board")
-    print("Your job is to guess the position of the computer's ships\n\n")
+    game.load(1, 2)
+    print("Your job is to guess the position of the computer's ships")
+    game.load(1, 2)
 else:
     print(f"Each player has {game.ship_amount} ship on their board")
-    print("Your job is to guess the position of the computer's ship\n\n")
+    game.load(1, 2)
+    print("Your job is to guess the position of the computer's ship")
+    game.load(1, 2)
 
 print("You & the computer will take turns guessing coordinates")
+game.load(1, 2)
 print("This guess will either be a 'hit' or a 'miss'")
+game.load(1, 2)
 print("Hit all the positions taken up by a ship and you sink it")
-print("Sink all of the ships and you win!\n\n")
+game.load(1, 2)
+print("Sink all of the ships and you win!")
+game.load(1, 2)
 
 
 print("Do you want to begin?")

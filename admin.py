@@ -61,12 +61,12 @@ class Admin():
             self.board_size = 4
             self.ship_amount = 1
             self.point_target = 3
-            print("\nYou've chosen Easy\n\n")
+            print("\nYou've chosen Easy")
         elif choice == "M":
             self.board_size = 6
             self.ship_amount = 2
             self.point_target = 7
-            print("\nYou've chosen Medium\n\n")
+            print("\nYou've chosen Medium")
         elif choice == "H":
             self.board_size = 8
             self.ship_amount = 3
