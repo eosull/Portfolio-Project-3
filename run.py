@@ -11,6 +11,8 @@ game = Admin(0, 0, 0, 0, 0, 0)
 
 ship_size = 3
 
+print("Welcome to Battleship\n")
+
 while True:
     name_input = Validation(input("Enter your name:\n"))
     if name_input.validate_name():
@@ -26,7 +28,12 @@ while True:
         break
 
 print("Here are the rules:\n")
-print(f"Each player has {game.ship_amount} ship/ships on their board")
+
+if game.ship_amount > 1:
+    print(f"Each player has {game.ship_amount} ships on their board")
+else:
+    print(f"Each player has {game.ship_amount} ship on their board")
+
 print("They will be placed horizontally or vertically\n")
 
 print("Your job is to guess the position of these ships")
