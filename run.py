@@ -69,11 +69,11 @@ player_places, computer_places = game.count_board_places()
 game.check_board_ok(player_places, computer_places,
                     player_ships, computer_ships)
 
-print("\n**Your Guesses**\n")
+print("**Your Guesses**")
 game.board_3.print_board()
-print("\n****************\n")
+print("\n\n****************\n\n")
 
-print("\n**Your Board**\n")
+print("**Your Board**")
 game.board_2.print_board()
 print("\n**************\n")
 

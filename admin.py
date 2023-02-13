@@ -70,7 +70,7 @@ class Admin():
             self.board_size = 8
             self.ship_amount = 3
             self.point_target = 12
-            print("\nYou've chosen Hard\n\n")
+            print("\nYou've chosen Hard")
 
     def guess(self, player_score, comp_score):
         """
@@ -148,13 +148,13 @@ class Admin():
         Includes boards, key for boards and scores
         """
         print("\n********************************\n")
-        print("**Your Guesses**\n")
+        print("**Your Guesses**")
         self.board_3.print_board()
-        print("\n********\n")
+        print("\n\n****************\n\n")
 
-        print("\n**Your board**\n")
+        print("**Your Board**")
         self.board_2.print_board()
-        print("\n********\n")
+        print("\n**************\n")
 
         print("~ = Water")
         print("± = Ship")
