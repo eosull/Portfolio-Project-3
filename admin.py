@@ -1,6 +1,7 @@
 
 from random import randint
 from validation import Validation
+import time
 
 
 class Admin():
@@ -175,3 +176,11 @@ class Admin():
         elif comp_score == self.point_target:
             print("You Lose!!")
             print("Unlucky!")
+
+    def load(self, lines, time_per_line):
+        """
+        Simulates loading by printing character followed by sleep
+        """
+        for _ in range(0, lines):
+            print(".")
+            time.sleep(time_per_line)
