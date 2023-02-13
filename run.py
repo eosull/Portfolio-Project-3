@@ -14,9 +14,8 @@ ship_size = 3
 while True:
     name_input = Validation(input("Enter your name:\n"))
     if name_input.validate_name():
-        print(f"Thank you {name_input.data}, let's get ready to play!\n")
+        print(f"Thank you {name_input.data}, let's get ready to play!")
         break
-
 
 print("Please Choose Difficulty")
 while True:
@@ -29,11 +28,13 @@ while True:
 print("Here are the rules:\n")
 print(f"Each player has {game.ship_amount} ship/ships on their board")
 print("They will be placed horizontally or vertically\n")
+
 print("Your job is to guess the position of these ships")
 print("Each player will take turns guessing coordinates")
 print("This guess will either be a 'hit' or a 'miss'")
 print("Hit all the positions taken up by a ship and you sink it")
 print("Sink all of the ships and you win!\n")
+
 
 print("Do you want to begin?")
 while True:

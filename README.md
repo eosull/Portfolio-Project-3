@@ -1,8 +1,30 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship Game
 
-Welcome eosull,
+## Python Portfolio Project 3
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+![Image of deployed game on multiple devices](image/address)
+
+## Introduction
+
+## User Experience/Site Goals
+
+## Design
+
+## Features
+
+## Technologies Used
+
+## Testing
+
+## Deployment
+
+## Forking/Cloning Project
+
+## Credits
+
+
+
+
 
 ## Reminders
 
