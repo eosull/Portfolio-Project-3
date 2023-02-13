@@ -12,6 +12,14 @@ class Admin():
     * Making sure ships are not overlapping
     * Checking for a win
     """
+    def __init__(self, board_1, board_2, board_3, board_size,
+                 ship_amount, point_target):
+        self.board_1 = board_1
+        self.board_2 = board_2
+        self.board_3 = board_3
+        self.board_size = board_size
+        self.ship_amount = ship_amount
+        self.point_target = point_target
 
     def check_board_ok(self, player_places, computer_places,
                        player_ships, computer_ships):

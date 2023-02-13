@@ -7,7 +7,7 @@ from ship import Ship
 from board import Board
 from validation import Validation
 
-game = Admin()
+game = Admin(0, 0, 0, 0, 0, 0)
 
 ship_size = 3
 
