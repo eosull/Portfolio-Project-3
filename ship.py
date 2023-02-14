@@ -30,26 +30,26 @@ class Ship():
         Checks generated positions against the populated
         board to prevent duplication
         """
-        for j in range(0, self.ship_amount):
+        for ship_increase in range(0, self.ship_amount):
             row, column = self.position()
-            for row_check in range(0, self.ship_size + j):
-                for column_check in range(0, self.ship_size + j):
+            for row_check in range(0, self.ship_size + ship_increase):
+                for column_check in range(0, self.ship_size + ship_increase):
                     check_pos = board.board[row + row_check][
                         column + column_check]
                     while (check_pos == "1") or (check_pos == "±"):
                         row, column = self.position()
                         check_pos = board.board[row + row_check][
                             column + column_check]
-            self.place_ship(row, column, j, player, board)
+            self.place_ship(row, column, ship_increase, player, board)
 
-    def place_ship(self, row, column, j, player, board):
+    def place_ship(self, row, column, ship_increase, player, board):
         """
         Marks the board where ships to be positioned
-        Random num generated to decide whether horizontal 
+        Random num generated to decide whether horizontal
         or vertical
         """
         direction = randint(0, 1)
-        for i in range(0, self.ship_size + j):
+        for i in range(0, self.ship_size + ship_increase):
             if player == 1:
                 if direction == 0:
                     board.board[row + i][column] = str(player)
