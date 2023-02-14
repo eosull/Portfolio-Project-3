@@ -48,12 +48,12 @@ class Board():
         for i in range(self.size):
             topline += (" " + str(i))
         print(f"{topline}\n")
-        time.sleep(0.25)
+        time.sleep(0.125)
         number = 0
         for row in self.board:
             print(number, " ", (" ").join(row))
             number += 1
-            time.sleep(0.25)
+            time.sleep(0.125)
 
     def clear_board(self, player):
         """

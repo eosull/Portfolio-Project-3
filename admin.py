@@ -113,7 +113,7 @@ class Admin():
         Generates another random guess for computer if guess already been made
         Score incremented if hit, returned unchanged if miss
         """
-        if (player == 1):
+        if player == 1:
             previous_guess = guess_board.board[row][column]
             while (previous_guess == "o") or (previous_guess == "X"):
                 print("You've already guessed here!")
@@ -130,15 +130,23 @@ class Admin():
 
         if guess == "0" or guess == "~":
             if player == 1:
+                self.load(2, 0.25)
+                print("You missed!!")
                 guess_board.board[row][column] = "o"
             if player == 2:
+                self.load(2, 0.25)
+                print("Computer missed!!")
                 board.board[row][column] = "o"
             return score
 
         elif (guess == "1") or (guess == "±"):
             if player == 1:
+                self.load(2, 0.25)
+                print("You hit a ship!!")
                 guess_board.board[row][column] = "X"
             elif player == 2:
+                self.load(2, 0.25)
+                print("Computer hit a ship!!")
                 board.board[row][column] = "X"
             score += 1
             return score
@@ -148,32 +156,32 @@ class Admin():
         Prints out game status after each validated guess
         Includes boards, key for boards and scores
         """
-        self.load(2, 0.25)
+        self.load(2, 0.125)
         print("********************************")
-        self.load(2, 0.25)
+        self.load(2, 0.125)
         print("**Your Guesses**")
-        self.load(1, 0.25)
+        self.load(1, 0.125)
         self.board_3.print_board()
-        self.load(2, 0.25)
+        self.load(2, 0.125)
         print("****************")
 
-        self.load(2, 0.25)
+        self.load(2, 0.125)
         print("**Your Board**")
-        self.load(1, 0.25)
+        self.load(1, 0.125)
         self.board_2.print_board()
-        self.load(2, 0.25)
+        self.load(2, 0.125)
         print("**************")
 
-        self.load(1, 0.25)
+        self.load(1, 0.125)
         print("~ = Water")
         print("± = Ship")
         print("X = Hit")
         print("o = Miss")
 
-        self.load(2, 0.25)
+        self.load(2, 0.125)
         print(f"Your score: {player_score}")
         print(f"Computer score is {comp_score}")
-        self.load(1, 0.25)
+        self.load(1, 0.125)
         print(f"Score {self.point_target} to win")
 
     def check_if_win(self, player_score, comp_score):

@@ -10,11 +10,11 @@ game = Admin(0, 0, 0, 0, 0, 0)
 ship_size = 3
 
 print("Welcome to....")
-game.load(5, 0.25)
+game.load(5, 0.125)
 print("""\
             █▄▄ ▄▀█ ▀█▀ ▀█▀ █   █▀▀ █▀ █ █ █ █▀█
             █▄█ █▀█  █   █  █▄▄ ██▄ ▄█ █▀█ █ █▀▀""")
-game.load(5, 0.25)
+game.load(5, 0.125)
 
 while True:
     name_input = Validation(input("Enter your name:\n"))
@@ -39,23 +39,23 @@ game.load(1, 2)
 
 if game.ship_amount > 1:
     print(f"Each player has {game.ship_amount} ships on their board")
-    game.load(1, 2)
+    game.load(1, 0.25)
     print("Your job is to guess the position of the computer's ships")
-    game.load(1, 2)
+    game.load(1, 0.25)
 else:
     print(f"Each player has {game.ship_amount} ship on their board")
-    game.load(1, 2)
+    game.load(1, 0.25)
     print("Your job is to guess the position of the computer's ship")
-    game.load(1, 2)
+    game.load(1, 0.25)
 
 print("You & the computer will take turns guessing coordinates")
-game.load(1, 2)
+game.load(1, 0.25)
 print("This guess will either be a 'hit' or a 'miss'")
-game.load(1, 2)
+game.load(1, 0.25)
 print("Hit all the positions taken up by a ship and you sink it")
-game.load(1, 2)
+game.load(1, 0.25)
 print("Sink all of the ships and you win!")
-game.load(1, 2)
+game.load(1, 0.25)
 
 print("Do you want to begin?")
 while True:
