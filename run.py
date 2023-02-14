@@ -1,5 +1,3 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 from admin import Admin
@@ -24,8 +22,10 @@ while True:
         print(f"Thank you {name_input.data}, let's get ready to play!")
         break
 game.load(2, 1)
+
 print("Firstly, Please Choose Difficulty")
 game.load(1, 1)
+
 while True:
     difficulty_input = Validation(input(
         "Press E for Easy, M for Medium and H for Hard:").upper())
@@ -33,8 +33,10 @@ while True:
         game.difficulty(difficulty_input.data)
         break
 game.load(2, 0.5)
+
 print("Ok, here are the rules:")
 game.load(1, 2)
+
 if game.ship_amount > 1:
     print(f"Each player has {game.ship_amount} ships on their board")
     game.load(1, 2)
@@ -64,12 +66,12 @@ while True:
 ship_max = (game.ship_amount + ship_size)-1
 player_score, comp_score = 0, 0
 
-player_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
-computer_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
-
 game.board_1 = Board(game.board_size, "hidden")
 game.board_2 = Board(game.board_size, "position")
 game.board_3 = Board(game.board_size, "guess")
+
+player_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
+computer_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
 
 player_ships.position_ship(1, game.board_1)
 computer_ships.position_ship(2, game.board_2)
