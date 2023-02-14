@@ -27,7 +27,7 @@ print("[dark_orange]Please Choose Difficulty[/dark_orange]")
 
 while True:
     difficulty_input = Validation(input(
-        "Press E for Easy, M for Medium and H for Hard:").upper())
+        "Press E for Easy, M for Medium and H for Hard:\n").upper())
     if difficulty_input.validate_diff():
         game.difficulty(difficulty_input.data)
         break

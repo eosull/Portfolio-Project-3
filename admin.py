@@ -85,13 +85,13 @@ class Admin():
             # Player Guess
             while True:
                 guess_row = Validation(input(
-                            f"Choose Row 0-{self.board_size-1}:"))
+                            f"Choose Row 0-{self.board_size-1}:\n"))
                 if guess_row.validate_guess(self.board_size-1):
                     row_val = int(guess_row.data)
                     break
             while True:
                 guess_column = Validation(input(
-                            f"Choose column 0-{self.board_size-1}:"))
+                            f"Choose column 0-{self.board_size-1}:\n"))
                 if guess_column.validate_guess(self.board_size-1):
                     col_val = int(guess_column.data)
                     break
@@ -119,8 +119,8 @@ class Admin():
             while (previous_guess == "o") or (previous_guess == "X"):
                 print("You've already guessed here!")
                 print("Guess Again!!")
-                row = int(input(f"Choose Row 0-{self.board_size-1}:"))
-                column = int(input(f"Choose Column 0-{self.board_size-1}:"))
+                row = int(input(f"Choose Row 0-{self.board_size-1}:\n"))
+                column = int(input(f"Choose Column 0-{self.board_size-1}:\n"))
                 previous_guess = board.board[row][column]
 
         guess = board.board[row][column]
