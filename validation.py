@@ -21,8 +21,8 @@ class Validation():
             for element in self.data:
                 if element.isalpha() is False:
                     raise ValueError("Name must only contain letters\n")
-        except ValueError as e:
-            print(f"Invalid name: {e}Please try again.\n")
+        except ValueError as error:
+            print(f"Invalid name: {error}Please try again.\n")
             return False
         return True
 
@@ -35,8 +35,8 @@ class Validation():
                 return True
             else:
                 raise ValueError("Must press E, M or H\n")
-        except ValueError as e:
-            print(f"Invalid difficulty: {e}Please try again")
+        except ValueError as error:
+            print(f"Invalid difficulty: {error}Please try again")
             return False
 
     def validate_start(self):
@@ -52,8 +52,8 @@ class Validation():
                 exit()
             else:
                 raise ValueError("Must press Y or N\n")
-        except ValueError as e:
-            print(f"Invalid choice: {e}Please try again")
+        except ValueError as error:
+            print(f"Invalid choice: {error}Please try again")
             return False
 
     def validate_guess(self, board_range):
@@ -67,6 +67,6 @@ class Validation():
                 raise ValueError(f"Guess must be between 0 and {range}")
             elif int(self.data) <= board_range:
                 return True
-        except ValueError as e:
-            print(f"Invalid choice: {e}")
+        except ValueError as error:
+            print(f"Invalid choice: {error}")
             return False
