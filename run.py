@@ -14,8 +14,8 @@ ship_size = 3
 print("Welcome to....")
 game.load(5, 0.25)
 print("""\
-            █▄▄ ▄▀█ ▀█▀ ▀█▀ █░░ █▀▀ █▀ █░█ █ █▀█
-            █▄█ █▀█ ░█░ ░█░ █▄▄ ██▄ ▄█ █▀█ █ █▀▀""")
+            █▄▄ ▄▀█ ▀█▀ ▀█▀ █   █▀▀ █▀ █ █ █ █▀█
+            █▄█ █▀█  █   █  █▄▄ ██▄ ▄█ █▀█ █ █▀▀""")
 game.load(5, 0.25)
 
 while True:
@@ -54,7 +54,6 @@ print("Hit all the positions taken up by a ship and you sink it")
 game.load(1, 2)
 print("Sink all of the ships and you win!")
 game.load(1, 2)
-
 
 print("Do you want to begin?")
 while True:

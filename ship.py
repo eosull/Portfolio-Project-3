@@ -27,15 +27,8 @@ class Ship():
 
     def position_ship(self, player, board):
         """
-        Calls position function for each ship required
-
-        The returned positions are tested to make sure
-        they are not already take by a ship
-
-        If they are new position is generated and tested
-
-        Once this is passed place_ship function called to
-        place the ship onto the required board
+        Checks generated positions against the populated
+        board to prevent duplication
         """
         for j in range(0, self.ship_amount):
             row, column = self.position()
@@ -51,12 +44,9 @@ class Ship():
 
     def place_ship(self, row, column, j, player, board):
         """
-        Generates random number to decide whether ship
-        will be horizontal or vertical
-
-        Using ship_size variable (increases on each ship)
-        ship is built out from starting point, placing
-        either a '1' or a '±' to mark position
+        Marks the board where ships to be positioned
+        Random num generated to decide whether horizontal 
+        or vertical
         """
         direction = randint(0, 1)
         for i in range(0, self.ship_size + j):

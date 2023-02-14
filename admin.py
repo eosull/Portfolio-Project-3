@@ -194,4 +194,3 @@ class Admin():
         for _ in range(0, lines):
             print(" ")
             time.sleep(time_per_line)
-            
