@@ -79,21 +79,7 @@ player_places, computer_places = game.count_board_places()
 game.check_board_ok(player_places, computer_places,
                     player_ships, computer_ships)
 
-game.load(2, 0.5)
-print("**Your Guesses**")
-game.load(1, 0.5)
-game.board_3.print_board()
-game.load(2, 0.5)
-print("****************")
-
-game.load(2, 0.5)
-print("**Your Board**")
-game.load(1, 0.5)
-game.board_2.print_board()
-game.load(2, 0.5)
-print("\n**************\n")
-
-print(f"Target score is {game.point_target}")
+game.print_game_status(0, 0)
 print("Good Luck!!\n")
 
 game.guess(player_score, comp_score)

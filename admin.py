@@ -148,32 +148,32 @@ class Admin():
         Prints out game status after each validated guess
         Includes boards, key for boards and scores
         """
-        self.load(2, 0.5)
+        self.load(2, 0.25)
         print("********************************")
-        self.load(2, 0.5)
+        self.load(2, 0.25)
         print("**Your Guesses**")
-        self.load(1, 0.5)
+        self.load(1, 0.25)
         self.board_3.print_board()
-        self.load(2, 0.5)
+        self.load(2, 0.25)
         print("****************")
 
-        self.load(2, 0.5)
+        self.load(2, 0.25)
         print("**Your Board**")
-        self.load(1, 0.5)
+        self.load(1, 0.25)
         self.board_2.print_board()
-        self.load(2, 0.5)
+        self.load(2, 0.25)
         print("**************")
 
-        self.load(1, 0.5)
+        self.load(1, 0.25)
         print("~ = Water")
         print("± = Ship")
         print("X = Hit")
         print("o = Miss")
 
-        self.load(2, 0.5)
+        self.load(2, 0.25)
         print(f"Your score: {player_score}")
         print(f"Computer score is {comp_score}")
-        self.load(1, 0.5)
+        self.load(1, 0.25)
         print(f"Score {self.point_target} to win")
 
     def check_if_win(self, player_score, comp_score):
