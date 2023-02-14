@@ -2,6 +2,7 @@
 import time
 from random import randint
 from validation import Validation
+from rich import print
 
 
 class Admin():
@@ -130,22 +131,22 @@ class Admin():
 
         if guess == "0" or guess == "~":
             if player == 1:
-                self.load(2, 0.25)
+                self.load(1, 0.5)
                 print("You missed!!")
                 guess_board.board[row][column] = "o"
             if player == 2:
-                self.load(2, 0.25)
+                self.load(1, 0.25)
                 print("Computer missed!!")
                 board.board[row][column] = "o"
             return score
 
         elif (guess == "1") or (guess == "±"):
             if player == 1:
-                self.load(2, 0.25)
+                self.load(1, 0.5)
                 print("You hit a ship!!")
                 guess_board.board[row][column] = "X"
             elif player == 2:
-                self.load(2, 0.25)
+                self.load(1, 0.5)
                 print("Computer hit a ship!!")
                 board.board[row][column] = "X"
             score += 1
@@ -156,21 +157,21 @@ class Admin():
         Prints out game status after each validated guess
         Includes boards, key for boards and scores
         """
-        self.load(2, 0.125)
+        self.load(1, 0.125)
         print("********************************")
-        self.load(2, 0.125)
-        print("**Your Guesses**")
+        self.load(1, 0.125)
+        print("             [dark_orange]Your Guesses[dark_orange]")
         self.load(1, 0.125)
         self.board_3.print_board()
-        self.load(2, 0.125)
-        print("****************")
+        self.load(1, 0.125)
+        print("********************************")
 
-        self.load(2, 0.125)
-        print("**Your Board**")
+        self.load(1, 0.125)
+        print("             [dark_orange]Your Board[/dark_orange]")
         self.load(1, 0.125)
         self.board_2.print_board()
-        self.load(2, 0.125)
-        print("**************")
+        self.load(1, 0.125)
+        print("********************************")
 
         self.load(1, 0.125)
         print("~ = Water")
@@ -178,7 +179,7 @@ class Admin():
         print("X = Hit")
         print("o = Miss")
 
-        self.load(2, 0.125)
+        self.load(1, 0.125)
         print(f"Your score: {player_score}")
         print(f"Computer score is {comp_score}")
         self.load(1, 0.125)

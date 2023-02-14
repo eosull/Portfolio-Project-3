@@ -44,14 +44,14 @@ class Board():
         through board size combined with .join() to add a space
         between all items in list
         """
-        topline = "   "
+        topline = "             "
         for i in range(self.size):
             topline += (" " + str(i))
         print(f"{topline}\n")
         time.sleep(0.125)
         number = 0
         for row in self.board:
-            print(number, " ", (" ").join(row))
+            print("         ", number, " ", (" ").join(row))
             number += 1
             time.sleep(0.125)
 
