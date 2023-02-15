@@ -70,6 +70,14 @@ of color to highlight specific points. The color was added using the [rich](http
 library and the title design was created using an [ASCII text generator](https://fsymbols.com/generators/smallcaps/).
 
 ## Features
+### Validation
+All of the user input is tested using the Validation class for suitability, see below images
+for examples of invalid input
+![Name Verification](assets/readme-images/name-verification-screenshot.png)
+
+![Difficulty Verification](assets/readme-images/difficulty-verification-screenshot.png)
+
+![Start Verification](assets/readme-images/start-verification-screenshot.png)
 
 ## Technologies Used
 
