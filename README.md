@@ -89,12 +89,18 @@ displayed and these are both updated after each turn. The board containing the c
 only used for checking user's guesses.
 
 The boards are navigated using indexing as x & y co-ordinates. So board1[0][0] is designed to
-be the value at board1 if x & y co-ordiantes are (0, 0).
+be the value at board1 if x & y co-ordinates are (0, 0).
 
 Once a guess is generated, the board is checked at these co-ordinates and then marked 'X' if a
 hit or 'o' is a miss.
 
 ![Board screenshot](assets/readme-images/board-screenshot.png)
+
+### Scores
+Each player's score is incremented every time they hit a ship. Once they reach the target score 
+they win the game.
+
+![Scores](assets/readme-images/scores-screenshot.png)
 
 ## Technologies Used
 
