@@ -1,15 +1,16 @@
-from rich import print
+from rich.console import Console
 from admin import Admin
 from ship import Ship
 from board import Board
 from validation import Validation
 
 game = Admin(0, 0, 0, 0, 0, 0)
+console = Console()
 
-ship_size = 3
+SHIP_SIZE = 3
 
 game.load(5, 0.125)
-print("""[bold dark_orange]\
+console.print("""[bold dark_orange]\
             █▄▄ ▄▀█ ▀█▀ ▀█▀ █   █▀▀ █▀ █ █ █ █▀█
             █▄█ █▀█  █   █  █▄▄ ██▄ ▄█ █▀█ █ █▀▀[/bold dark_orange]""")
 game.load(5, 0.125)
@@ -21,7 +22,7 @@ while True:
         break
 game.load(2, 0.25)
 
-print("[dark_orange]Please Choose Difficulty[/dark_orange]")
+console.print("[dark_orange]Please Choose Difficulty[/dark_orange]")
 
 while True:
     difficulty_input = Validation(input(
@@ -61,22 +62,22 @@ print("X = Hit")
 print("o = Miss")
 game.load(1, 0.125)
 
-print("[dark_orange]Do you want to begin?[/dark_orange]")
+console.print("[dark_orange]Do you want to begin?[/dark_orange]")
 while True:
     start_input = Validation(input("Y for Yes, N for No:").upper())
     if start_input.validate_start():
         break
 
 
-ship_max = (game.ship_amount + ship_size)-1
+ship_max = (game.ship_amount + SHIP_SIZE) - 1
 player_score, comp_score = 0, 0
 
 game.board_1 = Board(game.board_size, "hidden")
 game.board_2 = Board(game.board_size, "position")
 game.board_3 = Board(game.board_size, "guess")
 
-player_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
-computer_ships = Ship(ship_size, game.board_size, ship_max, game.ship_amount)
+player_ships = Ship(SHIP_SIZE, game.board_size, ship_max, game.ship_amount)
+computer_ships = Ship(SHIP_SIZE, game.board_size, ship_max, game.ship_amount)
 
 player_ships.position_ship(1, game.board_1)
 computer_ships.position_ship(2, game.board_2)

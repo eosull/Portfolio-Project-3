@@ -1,4 +1,3 @@
-
 class Validation():
     """
     Class for validation of user input

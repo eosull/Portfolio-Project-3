@@ -1,7 +1,9 @@
 import time
 from random import randint
-from rich import print
+from rich.console import Console
 from validation import Validation
+
+console = Console()
 
 
 class Admin():
@@ -158,12 +160,14 @@ class Admin():
         self.load(1, 0.125)
         print("********************************")
         time.sleep(0.125)
-        print("             [dark_orange]Your Guesses[dark_orange]", end="      ")
+        console.print("             [dark_orange]Your Guesses[dark_orange]",
+                      end="      ")
         print(f"Your score: {player_score}")
         time.sleep(0.125)
         self.board_3.print_board()
         self.load(1, 0.125)
-        print("             [dark_orange]Your Board[/dark_orange]", end="       ")
+        console.print("             [dark_orange]Your Board[/dark_orange]",
+                      end="       ")
         print(f"Computer score is {comp_score}")
         time.sleep(0.125)
         self.board_2.print_board()
