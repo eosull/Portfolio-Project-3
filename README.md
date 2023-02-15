@@ -66,8 +66,10 @@ board, ship, validation & admin. These were used to handle specific areas of the
 
 ### Aesthetic Design
 The approach to the look of the game was to keep it minimal and simple, using pops 
-of color to highlight specific points. The color was added using the [rich](https://github.com/Textualize/rich)
-library and the title design was created using an [ASCII text generator](https://fsymbols.com/generators/smallcaps/).
+of color to highlight specific points. The thinking behind this was to keep the grid
+and co-ordinates clear by not trying to over complicate it's design. The color was
+added using the [rich](https://github.com/Textualize/rich) library and the title design
+was created using an [ASCII text generator](https://fsymbols.com/generators/smallcaps/).
 
 ## Features
 ### Validation
@@ -122,6 +124,12 @@ they win the game.
   - [ASCII text generator](https://fsymbols.com/generators/smallcaps/): Used to generate game startup logo
 
 ## Testing
+### Input Validation
+Input validation is carried out using the Validation class at every point where the user is asked to 
+input data. If the input is not valid a ValueError is raised and input is asked for again. This prevents
+the game crashing due to incorrect input. Inputs that are validated are explained further in [Features](#features) section.
+
+
 
 ## Deployment
 
