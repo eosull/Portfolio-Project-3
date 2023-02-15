@@ -62,6 +62,12 @@ while True:
     if start_input.validate_start():
         break
 
+game.load(1, 0.125)
+print("~ = Water")
+print("± = Ship")
+print("X = Hit")
+print("o = Miss")
+
 ship_max = (game.ship_amount + ship_size)-1
 player_score, comp_score = 0, 0
 
@@ -81,6 +87,5 @@ game.check_board_ok(player_places, computer_places,
                     player_ships, computer_ships)
 
 game.print_game_status(0, 0)
-print("Good Luck!!\n")
 
 game.guess(player_score, comp_score)

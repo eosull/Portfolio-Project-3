@@ -160,29 +160,18 @@ class Admin():
         self.load(1, 0.125)
         print("********************************")
         self.load(1, 0.125)
-        print("             [dark_orange]Your Guesses[dark_orange]")
+        print("             [dark_orange]Your Guesses[dark_orange]", end="      ")
+
+        print(f"Your score: {player_score}")
         self.load(1, 0.125)
         self.board_3.print_board()
         self.load(1, 0.125)
-        print("********************************")
-
-        self.load(1, 0.125)
-        print("             [dark_orange]Your Board[/dark_orange]")
+        print("             [dark_orange]Your Board[/dark_orange]", end="       ")
+        print(f"Computer score is {comp_score}")
         self.load(1, 0.125)
         self.board_2.print_board()
         self.load(1, 0.125)
         print("********************************")
-
-        self.load(1, 0.125)
-        print("~ = Water")
-        print("± = Ship")
-        print("X = Hit")
-        print("o = Miss")
-
-        self.load(1, 0.125)
-        print(f"Your score: {player_score}")
-        print(f"Computer score is {comp_score}")
-        self.load(1, 0.125)
         print(f"Score {self.point_target} to win")
 
     def check_if_win(self, player_score, comp_score):
