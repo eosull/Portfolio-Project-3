@@ -67,7 +67,7 @@ board, ship, validation & admin. These were used to handle specific areas of the
 ### Aesthetic Design
 The approach to the look of the game was to keep it minimal and simple, using pops 
 of color to highlight specific points. The thinking behind this was to keep the grid
-and co-ordinates clear by not trying to over complicate it's design. The color was
+and co-ordinates clear by not trying to over complicate its design. The color was
 added using the [rich](https://github.com/Textualize/rich) library and the title design
 was created using an [ASCII text generator](https://fsymbols.com/generators/smallcaps/).
 
@@ -129,7 +129,21 @@ Input validation is carried out using the Validation class at every point where 
 input data. If the input is not valid a ValueError is raised and input is asked for again. This prevents
 the game crashing due to incorrect input. Inputs that are validated are explained further in [Features](#features) section.
 
+### Code Testing
+Pylint and Flake8 were useful in the development of this game as they continuously tested for errors in styling, indentation
+and syntax. They provided clear error messages and Python [reference guide](https://docs.python.org/3/reference/) and sites like
+[Stack Overflow](https://stackoverflow.com/) were useful in resolving these errors.
 
+The Code Institute Slack channels focused on Python and Portfolio Project 3 were also a useful resource for resolving issues 
+faced.
+
+### Issues Faced During Development
+- Rich library was not added automatically to requirements.txt file using pip freeze terminal command. This caused
+the module not to be found on Heroku when deployed. This was resolved by adding the rich dependancy into the
+requirements file manually.
+- The size of the terminal window deployed on Heroku was something that had to be considered when designing the final
+output of the game. In order to fit the two boards into the window whitespace and unnecessary text had to be removed 
+so the user can see both boards, scores and input guess without having to navigate up.
 
 ## Deployment
 
