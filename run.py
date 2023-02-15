@@ -47,6 +47,8 @@ else:
     print("Your job is to guess the position of the computer's ship")
     game.load(1, 0.25)
 
+print(f"Score {game.point_target} to win")
+game.load(1, 0.25)
 print("You & the computer will take turns guessing coordinates")
 game.load(1, 0.25)
 print("This guess will either be a 'hit' or a 'miss'")
@@ -55,6 +57,11 @@ print("Hit all the positions taken up by a ship and you sink it")
 game.load(1, 0.25)
 print("Sink all of the ships and you win!")
 game.load(1, 0.25)
+print("~ = Water")
+print("± = Ship")
+print("X = Hit")
+print("o = Miss")
+game.load(1, 0.125)
 
 print("[dark_orange]Do you want to begin?[/dark_orange]")
 while True:
@@ -62,11 +69,6 @@ while True:
     if start_input.validate_start():
         break
 
-game.load(1, 0.125)
-print("~ = Water")
-print("± = Ship")
-print("X = Hit")
-print("o = Miss")
 
 ship_max = (game.ship_amount + ship_size)-1
 player_score, comp_score = 0, 0

@@ -1,8 +1,7 @@
-
 import time
 from random import randint
-from validation import Validation
 from rich import print
+from validation import Validation
 
 
 class Admin():
@@ -82,12 +81,12 @@ class Admin():
         """
         while (player_score < self.point_target) and (comp_score
                                                       < self.point_target):
-            # Player Guess
             while True:
                 guess_row = Validation(input(
                             f"Choose Row 0-{self.board_size-1}:\n"))
                 if guess_row.validate_guess(self.board_size-1):
                     row_val = int(guess_row.data)
+
                     break
             while True:
                 guess_column = Validation(input(
@@ -98,7 +97,6 @@ class Admin():
             player_score = self.check_guess(self.board_1, self.board_3,
                                             row_val, col_val, 1, player_score)
 
-            # Computer Guess
             guess_comp_row = randint(0, self.board_size-1)
             guess_comp_column = randint(0, self.board_size-1)
             comp_score = self.check_guess(self.board_2, self.board_3,
@@ -161,7 +159,6 @@ class Admin():
         print("********************************")
         time.sleep(0.125)
         print("             [dark_orange]Your Guesses[dark_orange]", end="      ")
-
         print(f"Your score: {player_score}")
         time.sleep(0.125)
         self.board_3.print_board()
@@ -172,7 +169,6 @@ class Admin():
         self.board_2.print_board()
         time.sleep(0.125)
         print("********************************")
-        print(f"Score {self.point_target} to win")
 
     def check_if_win(self, player_score, comp_score):
         """
