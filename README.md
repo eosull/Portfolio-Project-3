@@ -129,7 +129,7 @@ Input validation is carried out using the Validation class at every point where 
 input data. If the input is not valid a ValueError is raised and input is asked for again. This prevents
 the game crashing due to incorrect input. Inputs that are validated are explained further in [Features](#features) section.
 
-### Code Testing
+### Code Testing
 Pylint and Flake8 were useful in the development of this game as they continuously tested for errors in styling, indentation
 and syntax. They provided clear error messages and Python [reference guide](https://docs.python.org/3/reference/) and sites like
 [Stack Overflow](https://stackoverflow.com/) were useful in resolving these errors.
