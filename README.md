@@ -103,6 +103,23 @@ they win the game.
 ![Scores](assets/readme-images/scores-screenshot.png)
 
 ## Technologies Used
+- Languages:
+  - [Python](https://www.python.org/)
+
+- Packages:
+  - [Random](https://docs.python.org/3/library/random.html?highlight=random#module-random): Used to generate ship positions
+  - [Time](https://docs.python.org/3/library/time.html?highlight=time#module-time): Used to display content gradually by using sleep() function
+  - [Rich](https://github.com/Textualize/rich): Used to add colour to highlight text
+  - [Flake8](https://flake8.pycqa.org/en/latest/): Used as style guide enforcement. Built into Gitpod workspace
+  - [Pylint](https://pypi.org/project/pylint/): Used as static code checker. Built into Gitpod workspace
+
+- Websites/Programs/Frameworks:
+  - [Gitpod](https://www.gitpod.io/): Used for version control and to develop/commit changes to project
+  - [Github](https://github.com/): Used to store the project's code after push from Gitpod
+  - [VSCode](https://code.visualstudio.com/): Used to experiment with classes and develop functions before adding to Gitpod
+  - [Heroku](https://dashboard.heroku.com): Used for deployment of game
+  - [Lucidchart.com](https://www.lucidchart.com/pages/): Used to build game flowchart
+  - [ASCII text generator](https://fsymbols.com/generators/smallcaps/): Used to generate game startup logo
 
 ## Testing
 
