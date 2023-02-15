@@ -8,7 +8,7 @@
 
 ## Introduction
 This battleship game was developed for Portfolio Project 3 - Python Essentials. It is designed to 
-be played within the Code Institute mock terminal hosted on Heroku - [Link to game](https://git.heroku.com/portfolio-project-3-battleship.git)
+be played within the Code Institute mock terminal hosted on Heroku - [Link to game](https://portfolio-project-3-battleship.herokuapp.com/)
 
 The aim of the game is to sink all of your opponents ships before they sink yours. In this case
 the user plays agains the computer. It is based on the classic battleship board game, rules for
@@ -19,7 +19,16 @@ ships are positioned. Each time the user makes a guess the board is updated and 
 of whether they scored a hit or a miss. This continues until either the user or the computer sinks
 all of their opponents ships and therefore win the game.
 
-## User Experience/Site Goals
+## User Experience & Game Goals
+- The aim as a developer was:
+  - To build an easy to play game that was enjoyable
+  - To allow the user to select their own difficulty
+
+- As a user I want to:
+  - Understand the rules of the game
+  - Consistent feedback on input and right/wrong guesses
+  - Emjoy the game
+  - Increase or decrease the difficulty if I want to play again
 
 ## Design
 
