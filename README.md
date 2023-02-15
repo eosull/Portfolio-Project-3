@@ -73,11 +73,28 @@ library and the title design was created using an [ASCII text generator](https:/
 ### Validation
 All of the user input is tested using the Validation class for suitability, see below images
 for examples of invalid input
+
 ![Name Verification](assets/readme-images/name-verification-screenshot.png)
 
 ![Difficulty Verification](assets/readme-images/difficulty-verification-screenshot.png)
 
 ![Start Verification](assets/readme-images/start-verification-screenshot.png)
+
+![Guess Verification](assets/readme-images/guess-verification-screenshot.png)
+
+### Boards
+The game functions using 3 boards; a guess board, a board containing user's ships and a board
+containing computers ships. Only the guess board and the board containing the user's ships are
+displayed and these are both updated after each turn. The board containing the computer's ships is
+only used for checking user's guesses.
+
+The boards are navigated using indexing as x & y co-ordinates. So board1[0][0] is designed to
+be the value at board1 if x & y co-ordiantes are (0, 0).
+
+Once a guess is generated, the board is checked at these co-ordinates and then marked 'X' if a
+hit or 'o' is a miss.
+
+![Board screenshot](assets/readme-images/board-screenshot.png)
 
 ## Technologies Used
 
