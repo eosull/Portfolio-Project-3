@@ -64,7 +64,7 @@ class Validation():
             if self.data.isnumeric() is False:
                 raise ValueError("Guess must be a number")
             elif int(self.data) > board_range:
-                raise ValueError(f"Guess must be between 0 and {range}")
+                raise ValueError(f"Guess must be between 0 and {board_range}")
             elif int(self.data) <= board_range:
                 return True
         except ValueError as error:
