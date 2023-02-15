@@ -2,9 +2,22 @@
 
 ## Python Portfolio Project 3
 
-![Image of deployed game on multiple devices](image/address)
+![Image of game title](assets/readme-images/title-screenshot.png)
+
+![Image of gameplay](assets/readme-images/gameplay-screenshot.png)
 
 ## Introduction
+This battleship game was developed for Portfolio Project 3 - Python Essentials. It is designed to 
+be played within the Code Institute mock terminal hosted on Heroku - [Link to game](https://git.heroku.com/portfolio-project-3-battleship.git)
+
+The aim of the game is to sink all of your opponents ships before they sink yours. In this case
+the user plays agains the computer. It is based on the classic battleship board game, rules for
+this can be found [here](https://www.cs.nmsu.edu/~bdu/TA/487/brules.htm)
+
+Using a command-line interface, the user can select rows and columns to guess where the computer's
+ships are positioned. Each time the user makes a guess the board is updated and the user is informed
+of whether they scored a hit or a miss. This continues until either the user or the computer sinks
+all of their opponents ships and therefore win the game.
 
 ## User Experience/Site Goals
 
