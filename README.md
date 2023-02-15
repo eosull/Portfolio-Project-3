@@ -144,6 +144,12 @@ requirements file manually.
 - The size of the terminal window deployed on Heroku was something that had to be considered when designing the final
 output of the game. In order to fit the two boards into the window whitespace and unnecessary text had to be removed 
 so the user can see both boards, scores and input guess without having to navigate up.
+- Name input validation could be passed by just pressing 'Enter' key and not submitting data. Fixed this by adding validation
+check to make sure at least 1 character was inputted.
+
+![Name input error](assets/readme-images/name-validation-error-screenshot.png)
+
+![Name input error resolved](assets/readme-images/name-validation-error-resolved-screenshot.png)
 
 ## Deployment
 
