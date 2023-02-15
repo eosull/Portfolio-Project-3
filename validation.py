@@ -17,6 +17,8 @@ class Validation():
         try:
             if len(self.data) > 15:
                 raise ValueError("Name must be less than 15 characters\n")
+            if len(self.data) < 1:
+                raise ValueError("Name must contain at least 1 character\n")
             for element in self.data:
                 if element.isalpha() is False:
                     raise ValueError("Name must only contain letters\n")
