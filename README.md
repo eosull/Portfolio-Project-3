@@ -148,7 +148,7 @@ they win the game.
 | Update boards to reflect guesses                                                               |          Yes           |
 | Check if either player has reached the target score to win                                     |          Yes           |
 | Display win/lose message depending on result                                                   |          Yes           |
-| Ask player if they want to play again, game restarts                                           |           No           |
+| Ask player if they want to play again, game restarts                                           |          Yes           |
 
 ### Input Validation
 Input validation is carried out using the Validation class at every point where the user is asked to 
