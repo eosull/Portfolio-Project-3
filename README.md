@@ -124,6 +124,31 @@ they win the game.
   - [ASCII text generator](https://fsymbols.com/generators/smallcaps/): Used to generate game startup logo
 
 ## Testing
+
+### Functionality Testing
+
+| Proposed Feature                                                                               | Functioning            |
+| :--------------------------------------------------------------------------------------------- | :--------------------: |
+| Welcome Message and logo                                                                       |          Yes           |
+| Ask player name                                                                                |          Yes           |
+| Name validation; no numbers, empty string or string > 15 characters                            |          Yes           |
+| Ask player for difficulty choice                                                               |          Yes           |
+| Difficulty validation; must be 'E', 'M' or 'H'                                                 |          Yes           |
+| Display game rules                                                                             |          Yes           |
+| Ask player if they want to start                                                               |          Yes           |
+| Start validation; must be 'Y' or 'N'                                                           |          Yes           |
+| Set up game; conditions set, boards created, scores set                                        |          Yes           |
+| Generate ship positions for player and computer and populate boards                            |          Yes           |
+| Print out board with player's ships and their guess board                                      |          Yes           |
+| Ask for player row/column guess                                                                |          Yes           |
+| Validate guess; must be an integer between 0 and board size - 1 (for indexing)                 |          Yes           |
+| Generate computer's guess                                                                      |          Yes           |
+| Check guesses for duplication and if it is a hit. Repeat until hit or miss                     |          Yes           |
+| Update boards to reflect guesses                                                               |          Yes           |
+| Check if either player has reached the target score to win                                     |          Yes           |
+| Display win/lose message depending on result                                                   |          Yes           |
+| Ask player if they want to play again, game restarts                                           |           No           |
+
 ### Input Validation
 Input validation is carried out using the Validation class at every point where the user is asked to 
 input data. If the input is not valid a ValueError is raised and input is asked for again. This prevents
