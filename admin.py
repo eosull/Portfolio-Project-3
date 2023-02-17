@@ -179,10 +179,10 @@ class Admin():
         Checks if computer or player have met the target score
         """
         if player_score == self.point_target:
-            print("You Win!!!\n")
+            console.print("[bold green]You Win!!![/bold green]\n")
             print("Congrats!!")
         elif comp_score == self.point_target:
-            print("You Lose!!")
+            console.print("[bold blue]You Lose!![/bold blue]\n")
             print("Unlucky!")
 
     def load(self, lines, time_per_line):
