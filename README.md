@@ -15,10 +15,11 @@ The aim of the game is to sink all of your opponents ships before they sink your
 the user plays agains the computer. It is based on the classic battleship board game, rules for
 this can be found [here](https://www.cs.nmsu.edu/~bdu/TA/487/brules.htm)
 
-Using a command-line interface, the user can select rows and columns to guess where the computer's
-ships are positioned. Each time the user makes a guess the board is updated and the user is informed
-of whether they scored a hit or a miss. This continues until either the user or the computer sinks
-all of their opponent's ships and win the game.
+Depending on the difficulty selected, the aim is to sink between 1 and 3 ships. Using a command-line
+interface, the user can select rows and columns to guess where the computer's ships are positioned.
+Each time the user makes a guess the board is updated and the user is informed whether they scored
+a hit or a miss. This continues until either the user or the computer sinks all of their opponent's
+ships and win the game.
 
 ## User Experience & Game Goals
 - The aim as a developer was:
@@ -30,6 +31,35 @@ all of their opponent's ships and win the game.
   - Consistent feedback on input and right/wrong guesses
   - Enjoy the game
   - Increase or decrease the difficulty if I want to play again
+
+## Features
+### Validation
+All of the user input is tested using the Validation class for suitability, see below images
+for examples of invalid input
+
+![Name Verification](assets/readme-images/name-verification-screenshot.png)
+
+![Difficulty Verification](assets/readme-images/difficulty-verification-screenshot.png)
+
+![Start Verification](assets/readme-images/start-verification-screenshot.png)
+
+![Guess Verification](assets/readme-images/guess-verification-screenshot.png)
+
+### Boards
+The boards are populated with ships and then printed. Once a guess is generated, the board is 
+checked at these co-ordinates and then marked 'X' if a hit or 'o' is a miss.
+
+![Board screenshot](assets/readme-images/board-screenshot.png)
+
+### Scores
+Each player's score is incremented every time they hit a ship. Once they reach the target score 
+they win the game.
+
+![Scores](assets/readme-images/scores-screenshot.png)
+
+### Future Features
+Store player's scores in a Google Sheet scoreboard that updates with every game. gspread and 
+API could be used to push and pull data from the scoreboard to display for users.
 
 ## Design
 
@@ -82,38 +112,9 @@ and player is asked if they want to play again. The classes are detailed further
 ### Aesthetic Design
 The approach to the look of the game was to keep it minimal and simple, using pops 
 of color to highlight specific points. The thinking behind this was to keep the grid
-and co-ordinates clear by not trying to over complicate its design. The color was
+and co-ordinates clear by not trying to complicate its design. The color was
 added using the [rich](https://github.com/Textualize/rich) library and the title design
 was created using an [ASCII text generator](https://fsymbols.com/generators/smallcaps/).
-
-## Features
-### Validation
-All of the user input is tested using the Validation class for suitability, see below images
-for examples of invalid input
-
-![Name Verification](assets/readme-images/name-verification-screenshot.png)
-
-![Difficulty Verification](assets/readme-images/difficulty-verification-screenshot.png)
-
-![Start Verification](assets/readme-images/start-verification-screenshot.png)
-
-![Guess Verification](assets/readme-images/guess-verification-screenshot.png)
-
-### Boards
-The boards are populated with ships and then printed. Once a guess is generated, the board is 
-checked at these co-ordinates and then marked 'X' if a hit or 'o' is a miss.
-
-![Board screenshot](assets/readme-images/board-screenshot.png)
-
-### Scores
-Each player's score is incremented every time they hit a ship. Once they reach the target score 
-they win the game.
-
-![Scores](assets/readme-images/scores-screenshot.png)
-
-### Future Features
-Store player's scores in a Google Sheet scoreboard that updates with every game. gspread and 
-API could be used to push and pull data from the scoreboard to display for users.
 
 ## Technologies Used
 - Languages:
@@ -175,7 +176,7 @@ adressed can be seen in [commits](https://github.com/eosull/Portfolio-Project-3/
 
 All code was also passed through the [CI Python Linter](https://pep8ci.herokuapp.com/) with no errors found.
 
-### Issues Faced During Development
+### Bugs During Development
 - Some examples of issues faced in development:
   - Rich library was not added automatically to requirements.txt file using pip freeze terminal command. This caused
   the module not to be found on Heroku when deployed. This was resolved by adding the rich dependancy into the
