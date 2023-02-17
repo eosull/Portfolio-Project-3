@@ -128,6 +128,8 @@ they win the game.
 
 ### Functionality Testing
 
+- Functionality testing was carried out on each feature laid out in logic chart of game, details in following table:
+
 | Proposed Feature                                                                               | Functioning            |
 | :--------------------------------------------------------------------------------------------- | :--------------------: |
 | Welcome Message and logo                                                                       |          Yes           |
@@ -157,21 +159,19 @@ the game crashing due to incorrect input. Inputs that are validated are explaine
 
 ### Code Testing
 Pylint and Flake8 were useful in the development of this game as they continuously tested for errors in styling, indentation
-and syntax. They provided clear error messages and Python [reference guide](https://docs.python.org/3/reference/) and sites like
-[Stack Overflow](https://stackoverflow.com/) were useful in resolving these errors.
-
-The Code Institute Slack channels focused on Python and Portfolio Project 3 were also a useful resource for resolving issues 
-faced.
+and syntax within the GitPod workspace. These errors that occured were fixed as soon as possible, evidence of these being
+adressed can be seen in commits that use the 'fix' and 'refactor' type.
 
 ### Issues Faced During Development
-- Rich library was not added automatically to requirements.txt file using pip freeze terminal command. This caused
-the module not to be found on Heroku when deployed. This was resolved by adding the rich dependancy into the
-requirements file manually.
-- The size of the terminal window deployed on Heroku was something that had to be considered when designing the final
-output of the game. In order to fit the two boards into the window whitespace and unnecessary text had to be removed 
-so the user can see both boards, scores and input guess without having to navigate up.
-- Name input validation could be passed by just pressing 'Enter' key and not submitting data. Fixed this by adding validation
-check to make sure at least 1 character was inputted.
+- Some examples of issues faced in development:
+  - Rich library was not added automatically to requirements.txt file using pip freeze terminal command. This caused
+  the module not to be found on Heroku when deployed. This was resolved by adding the rich dependancy into the
+  requirements file manually.
+  - The size of the terminal window deployed on Heroku was something that had to be considered when designing the final
+  output of the game. In order to fit the two boards into the window whitespace and unnecessary text had to be removed 
+  so the user can see both boards, scores and input guess without having to navigate up.
+  - Name input validation could be passed by just pressing 'Enter' key and not submitting data. Fixed this by adding validation
+  check to make sure at least 1 character was inputted.
 
 ![Name input error](assets/readme-images/name-validation-error-screenshot.png)
 
