@@ -122,6 +122,7 @@ they win the game.
   - [Heroku](https://dashboard.heroku.com): Used for deployment of game
   - [Lucidchart.com](https://www.lucidchart.com/pages/): Used to build game flowchart
   - [ASCII text generator](https://fsymbols.com/generators/smallcaps/): Used to generate game startup logo
+  - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification): Adhered to conventional commit guidelines for standardised commit messages
 
 ## Testing
 
