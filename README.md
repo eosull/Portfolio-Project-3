@@ -111,6 +111,10 @@ they win the game.
 
 ![Scores](assets/readme-images/scores-screenshot.png)
 
+### Future Features
+Store player's scores in a Google Sheet scoreboard that updates with every game. gspread and 
+API could be used to push and pull data from the scoreboard to display for users.
+
 ## Technologies Used
 - Languages:
   - [Python](https://www.python.org/)
