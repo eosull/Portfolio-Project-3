@@ -18,7 +18,7 @@ this can be found [here](https://www.cs.nmsu.edu/~bdu/TA/487/brules.htm)
 Using a command-line interface, the user can select rows and columns to guess where the computer's
 ships are positioned. Each time the user makes a guess the board is updated and the user is informed
 of whether they scored a hit or a miss. This continues until either the user or the computer sinks
-all of their opponents ships and therefore win the game.
+all of their opponent's ships and win the game.
 
 ## User Experience & Game Goals
 - The aim as a developer was:
@@ -41,10 +41,25 @@ to plan the structure and logic of the game. As can be seen in the chart the gam
 initial stages of verifying user name, difficulty and start choice before looping on the guess
 stage until a win is detected.
 
+### Data Model
+This game relies on a number of classes to run but the model is centred on the generation, population
+and testing of 3 boards:
+
+- Board 1 stores the position of the computer's ships and is not displayed
+- Board 2 stores the position of the player's ships and is displayed
+- Board 3 stores the player's guesses and is displayed
+
+The 3 boards consist of a series of lists that can be navigated using indexing as x,y co-ordinates. The
+boards are populated using the methods in the Ship class and guesses are checked and marked on the board
+using the methods in the Admin class. The Admin class also contains a print_game_state method to print out
+the current state of the boards and scores.
+
+Once player or computer reach the target score (amount of places taken up on board by ships) a win is declared
+and player is asked if they want to play again. The classes are detailed further below.
+
 ### Code Structure
 
-An Object-Oriented approach was used in the development of this game so 4 classes were created;
-board, ship, validation & admin. These were used to handle specific areas of the game:
+4 classes were created; board, ship, validation & admin. These were used to handle specific areas of the game:
 - Board
   - Creates a board in the style of a grid which can be altered as ships added & guesses made
   - Contains methods to print out the board and to clear the board if needed
@@ -85,16 +100,8 @@ for examples of invalid input
 ![Guess Verification](assets/readme-images/guess-verification-screenshot.png)
 
 ### Boards
-The game functions using 3 boards; a guess board, a board containing user's ships and a board
-containing computers ships. Only the guess board and the board containing the user's ships are
-displayed and these are both updated after each turn. The board containing the computer's ships is
-only used for checking user's guesses.
-
-The boards are navigated using indexing as x & y co-ordinates. So board1[0][0] is designed to
-be the value at board1 if x & y co-ordinates are (0, 0).
-
-Once a guess is generated, the board is checked at these co-ordinates and then marked 'X' if a
-hit or 'o' is a miss.
+The boards are populated with ships and then printed. Once a guess is generated, the board is 
+checked at these co-ordinates and then marked 'X' if a hit or 'o' is a miss.
 
 ![Board screenshot](assets/readme-images/board-screenshot.png)
 
@@ -157,10 +164,12 @@ Input validation is carried out using the Validation class at every point where 
 input data. If the input is not valid a ValueError is raised and input is asked for again. This prevents
 the game crashing due to incorrect input. Inputs that are validated are explained further in [Features](#features) section.
 
-### Code Testing
+### Validator Testing
 Pylint and Flake8 were useful in the development of this game as they continuously tested for errors in styling, indentation
 and syntax within the GitPod workspace. These errors that occured were fixed as soon as possible, evidence of these being
 adressed can be seen in [commits](https://github.com/eosull/Portfolio-Project-3/commits/main) that use the 'fix' and 'refactor' type.
+
+All code was also passed through the [CI Python Linter](https://pep8ci.herokuapp.com/) with no errors found.
 
 ### Issues Faced During Development
 - Some examples of issues faced in development:
