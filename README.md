@@ -186,10 +186,24 @@ The game was deployed to [Heroku](https://dashboard.heroku.com) by following the
 - In 'Config Vars' section enter 'port' into key box, '8000' into value box and hit add
 - In 'Buildpack' section add 2 buildpacks; Python and node.js (in that order) and click save
 - Navigate to app deploy tab
-- Select Github as deployment method and confirm connection to Github
+- Select GitHub as deployment method and confirm connection to GitHub
 - Search for repository and click connect
-- Select deployment type; automatic or manual deploys. Automatic has been chosen in this case so changes are pushed to Github the app updates automatically
+- Select deployment type; automatic or manual deploys. Automatic has been chosen in this case so changes are pushed to GitHub the app updates automatically
 
 ## Forking/Cloning Project
+- Project can be forked by following these steps:
+  - On [GitHub project page](https://github.com/eosull/Portfolio-Project-3) find the fork button at top right of the page
+  - Click this button and select owner for forked repository
+  - Change title of forked repository and add description if desired
+  - Choose to copy the default brach (in this case 'main')
+  - Click 'Create Fork' and create your fork
+  - [More info on process](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+
+- Project can be cloned by following these steps:
+  - On [GitHub project page](https://github.com/eosull/Portfolio-Project-3) click the 'Code' dropdown
+  - Copy either HTTPS, SSH or GitHub CLI URL
+  - Open terminal, enter 'git clone' and paste in the repository URL
+  - Hit enter to create your project clone
+  - [More info on process](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ## Credits
