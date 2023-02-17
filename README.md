@@ -178,6 +178,17 @@ check to make sure at least 1 character was inputted.
 ![Name input error resolved](assets/readme-images/name-validation-error-resolved-screenshot.png)
 
 ## Deployment
+The game was deployed to [Heroku](https://dashboard.heroku.com) by following these steps:
+- Login or create account with Heroku
+- Select 'Create new app' from the home page
+- Enter unique app name, select region and click 'create app'
+- Navigate to app settings tab
+- In 'Config Vars' section enter 'port' into key box, '8000' into value box and hit add
+- In 'Buildpack' section add 2 buildpacks; Python and node.js (in that order) and click save
+- Navigate to app deploy tab
+- Select Github as deployment method and confirm connection to Github
+- Search for repository and click connect
+- Select deployment type; automatic or manual deploys. Automatic has been chosen in this case so changes are pushed to Github the app updates automatically
 
 ## Forking/Cloning Project
 
