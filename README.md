@@ -207,3 +207,15 @@ The game was deployed to [Heroku](https://dashboard.heroku.com) by following the
   - [More info on process](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ## Credits
+### Content
+- The idea for this game came from the Code Institute suggested project ideas
+- The project was created from and made deployable by using [Code Institute Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template)
+- The battleship logo design was created using [Fsymbols small caps generator](https://fsymbols.com/generators/smallcaps/)
+
+### Resources
+- [Stack Overflow](https://stackoverflow.com/)
+- [Python reference](https://docs.python.org/3/reference/)
+- [W3Schools Python](https://www.w3schools.com/python/default.asp)
+- [Rich Library Docs](https://rich.readthedocs.io/en/stable/introduction.html)
+- [Python OOP YT tutorial](https://youtu.be/ZDa-Z5JzLYM)
+- [Battleship rules](https://www.cs.nmsu.edu/~bdu/TA/487/brules.htm)
