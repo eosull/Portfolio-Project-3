@@ -160,7 +160,7 @@ the game crashing due to incorrect input. Inputs that are validated are explaine
 ### Code Testing
 Pylint and Flake8 were useful in the development of this game as they continuously tested for errors in styling, indentation
 and syntax within the GitPod workspace. These errors that occured were fixed as soon as possible, evidence of these being
-adressed can be seen in commits that use the 'fix' and 'refactor' type.
+adressed can be seen in [commits](https://github.com/eosull/Portfolio-Project-3/commits/main) that use the 'fix' and 'refactor' type.
 
 ### Issues Faced During Development
 - Some examples of issues faced in development:

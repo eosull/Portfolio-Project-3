@@ -1,3 +1,10 @@
+"""
+run.py is the central program for running the game. It relies on the
+custom classes created to take care of operations in the game. These
+include creating/printing boards, populating boards with ships, validating
+input, taking and checking guesses and updating scores.
+"""
+
 # Import Rich console to print text with colours
 from rich.console import Console
 
@@ -30,6 +37,7 @@ while True:
         break
 game.load(2, 0.25)
 
+# While loop used to loop game until player chooses not to continue
 while PLAYING_GAME is True:
     # Take user difficulty input and verify
     console.print("[dark_orange]Please Choose Difficulty[/dark_orange]")
@@ -112,6 +120,7 @@ while PLAYING_GAME is True:
         if start_input.validate_start():
             break
 
+    # If player chooses Yes game restarts, otherwise it exits program
     if start_input == 'Y':
         PLAYING_GAME = True
     elif start_input == 'N':
